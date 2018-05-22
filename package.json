@@ -1,0 +1,18 @@
+{
+  "name": "monster-creator",
+  "description": "Create your own monster",
+  "main": "monster-creator.js",
+  "dependencies": {
+    "@polymer/iron-icons": "^3.0.0-pre.19",
+    "@polymer/lit-element": "^0.5.1",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "scripts": {
+    "test": "polyserve --npm --module-resolution=node"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}

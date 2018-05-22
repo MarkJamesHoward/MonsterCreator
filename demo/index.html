@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>monster-creator demo</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+  </script>
+
+  <script type="module" src="../monster-creator.js"></script>
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic monster-creator demo</h3>
+    <demo-snippet>
+      <template>
+        <monster-creator id="monster" customize></monster-creator>
+      </template>
+
+      <p>
+        As the level of the user increases the more options to customize become available.
+      </p>
+      <p>Use the below buttons to see this on the monster above</p>
+      <button onclick="AddLevel(1)">Increase Level</button>
+      <button onclick="AddLevel(-1)">Decrease Level</button>
+    </demo-snippet>
+  </div>
+
+
+  <script>
+    function AddLevel(val) {
+      let monster = document.querySelector('#monster');
+      let currentLevel = monster.getAttribute('level') | 0;
+      console.log(currentLevel)
+      monster.setAttribute('level', currentLevel + val)
+    }
+  </script>
+</body>
+
+</html>
