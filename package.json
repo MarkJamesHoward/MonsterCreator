@@ -8,7 +8,7 @@
     "@polymer/polymer": "^3.0.0"
   },
   "scripts": {
-    "test": "polyserve --npm --module-resolution=node"
+    "view": "polyserve --npm --module-resolution=node"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
