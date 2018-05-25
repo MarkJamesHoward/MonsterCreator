@@ -2,18 +2,18 @@ import { LitElement, html } from "@polymer/lit-element";
 
 import "@polymer/iron-icons/iron-icons.js";
 
-import "./images/silhouette/silhouette1.png";
-import "./images/silhouette/silhouette2.png";
-import "./images/silhouette/silhouette3.png";
-import "./images/silhouette/silhouette4.png";
+// import "./images/silhouette/silhouette1.png";
+// import "./images/silhouette/silhouette2.png";
+// import "./images/silhouette/silhouette3.png";
+// import "./images/silhouette/silhouette4.png";
 
-import "./images/eyes/eyes1.png";
-import "./images/eyes/eyes2.png";
-import "./images/eyes/eyes3.png";
+// import "./images/eyes/eyes1.png";
+// import "./images/eyes/eyes2.png";
+// import "./images/eyes/eyes3.png";
 
-import "./images/mouths/mouth1.png";
-import "./images/mouths/mouth2.png";
-import "./images/mouths/mouth3.png";
+// import "./images/mouths/mouth1.png";
+// import "./images/mouths/mouth2.png";
+// import "./images/mouths/mouth3.png";
 
 export class MonsterCreator extends LitElement {
   constructor() {
@@ -47,10 +47,6 @@ export class MonsterCreator extends LitElement {
       allowMoveEyesLeft: Boolean,
       showMouthMoveLeft: Boolean,
       showMouthMoveRight: Boolean,
-      showMouthMoveLeft: Boolean,
-      showMouthMoveRight: Boolean,
-      allowMoveEyesRight: Boolean,
-      allowMoveEyesLeft: Boolean,
       allowMouthMoveRight: Boolean,
       allowMouthMoveLeft: Boolean,
       locks: Array
