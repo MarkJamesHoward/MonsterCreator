@@ -1,13 +1,23 @@
-import {
-  LitElement, html
-} from "@polymer/lit-element";
+import { LitElement, html } from "@polymer/lit-element";
 
-import '@polymer/iron-icons/iron-icons.js'
+import "@polymer/iron-icons/iron-icons.js";
+
+import "./images/silhouette/silhouette1.png";
+import "./images/silhouette/silhouette2.png";
+import "./images/silhouette/silhouette3.png";
+import "./images/silhouette/silhouette4.png";
+
+import "./images/eyes/eyes1.png";
+import "./images/eyes/eyes2.png";
+import "./images/eyes/eyes3.png";
+
+import "./images/mouths/mouth1.png";
+import "./images/mouths/mouth2.png";
+import "./images/mouths/mouth3.png";
 
 export class MonsterCreator extends LitElement {
-
   constructor() {
-    console.log('created')
+    console.log("created");
     super();
     this.allowMouthMoveLeft = true;
     this.allowMouthMoveRight = true;
@@ -22,7 +32,6 @@ export class MonsterCreator extends LitElement {
     this.locks = [];
     this.level = 1;
   }
-
 
   static get properties() {
     return {
@@ -80,10 +89,21 @@ export class MonsterCreator extends LitElement {
     }
   }
 
-  _render({ silhouette, level, mouth, eyes, NUMBER_OF_IMAGES_EYES
-    , NUMBER_OF_IMAGES_MOUTH, NUMBER_OF_IMAGES_SILHOUETTES, customize,
-    allowMouthMoveLeft, allowMouthMoveRight, allowMoveEyesLeft, allowMoveEyesRight,
-    locks }) {
+  _render({
+    silhouette,
+    level,
+    mouth,
+    eyes,
+    NUMBER_OF_IMAGES_EYES,
+    NUMBER_OF_IMAGES_MOUTH,
+    NUMBER_OF_IMAGES_SILHOUETTES,
+    customize,
+    allowMouthMoveLeft,
+    allowMouthMoveRight,
+    allowMoveEyesLeft,
+    allowMoveEyesRight,
+    locks
+  }) {
     return html`
     <style>
       :root {
@@ -226,8 +246,10 @@ export class MonsterCreator extends LitElement {
       <div class='eyesselector'>
         <div class='eyes'>
     
-          <div class$="${this.customize ? '' : 'DisableCustomize'}">
-            <div class$="${this.AllowEyesMoveLeft() ? 'LeftArrow' : 'LeftArrow ArrowDisabled'}" on-click='${() => this.moveEyesLeft()}'>
+          <div class$="${this.customize ? "" : "DisableCustomize"}">
+            <div class$="${
+              this.AllowEyesMoveLeft() ? "LeftArrow" : "LeftArrow ArrowDisabled"
+            }" on-click='${() => this.moveEyesLeft()}'>
             </div>
           </div>
     
@@ -235,8 +257,12 @@ export class MonsterCreator extends LitElement {
             <img width="100%" src="./images/eyes/eyes${eyes}.png">
           </div>
     
-          <div class$="${this.customize ? '' : 'DisableCustomize'}">
-            <div class$="${this.AllowEyesMoveRight() ? 'RightArrow' : 'RightArrow ArrowDisabled'}" on-click='${() => this.moveEyesRight()}'>
+          <div class$="${this.customize ? "" : "DisableCustomize"}">
+            <div class$="${
+              this.AllowEyesMoveRight()
+                ? "RightArrow"
+                : "RightArrow ArrowDisabled"
+            }" on-click='${() => this.moveEyesRight()}'>
             </div>
           </div>
     
@@ -249,63 +275,81 @@ export class MonsterCreator extends LitElement {
     <div class="mouthselector">
       <div class='mouth'>
     
-        <div class$="${this.customize ? '' : 'DisableCustomize'}">
-          <div class$="${this.AllowMouthMoveLeft() ? 'LeftArrow' : 'LeftArrow ArrowDisabled'}" on-click="${() => this.moveMouthLeft()}"></div>
+        <div class$="${this.customize ? "" : "DisableCustomize"}">
+          <div class$="${
+            this.AllowMouthMoveLeft() ? "LeftArrow" : "LeftArrow ArrowDisabled"
+          }" on-click="${() => this.moveMouthLeft()}"></div>
         </div>
     
         <div style="width:30%">
           <img id="mouth" style="width:100%;" src="./images/mouths/mouth${mouth}.png">
         </div>
     
-        <div class$="${this.customize ? '' : 'DisableCustomize'}">
-          <div class$="${this.AllowMouthMoveRight() ? 'RightArrow' : 'RightArrow ArrowDisabled'}" on-click="${() => this.moveMouthRight()}">
+        <div class$="${this.customize ? "" : "DisableCustomize"}">
+          <div class$="${
+            this.AllowMouthMoveRight()
+              ? "RightArrow"
+              : "RightArrow ArrowDisabled"
+          }" on-click="${() => this.moveMouthRight()}">
           </div>
         </div>
 
       </div>
     </div>
     
-    <div id='SilhouetteSelector' class$="${this.customize ? 'silhouette' : 'DisableCustomize'}">
+    <div id='SilhouetteSelector' class$="${
+      this.customize ? "silhouette" : "DisableCustomize"
+    }">
     
-      <div on-click="${() => this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
+      <div on-click="${() =>
+        this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
         <img style="grid-area:main;width:100%" class="sil1" src="./images/silhouette/silhouette1.png">
-        <iron-icon class$="${this.level >= 1 ? 'NoPadlock' : ''}" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+        <iron-icon class$="${
+          this.level >= 1 ? "NoPadlock" : ""
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
       </div>
     
-      <div on-click="${() => this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <iron-icon class$="${this.level >= 2 ? 'NoPadlock' : ''}" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+      <div on-click="${() =>
+        this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
+        <iron-icon class$="${
+          this.level >= 2 ? "NoPadlock" : ""
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
         <img style="grid-area:main;width:100%" class="sil2" src="./images/silhouette/silhouette2.png">
       </div>
     
-      <div on-click="${() => this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
+      <div on-click="${() =>
+        this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
         <img style="grid-area:main;width:100%" class="sil3" src="./images/silhouette/silhouette3.png">
-        <iron-icon class$="${this.level >= 3 ? 'NoPadlock' : ''}" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+        <iron-icon class$="${
+          this.level >= 3 ? "NoPadlock" : ""
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
       </div>
-      <div on-click="${() => this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
+      <div on-click="${() =>
+        this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
         <img style="grid-area:main;width:100%" class="sil4" on-click='PickSilhouetee(4)' src="./images/silhouette/silhouette4.png">
-        <iron-icon class$="${this.level >= 4 ? 'NoPadlock' : ''}" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+        <iron-icon class$="${
+          this.level >= 4 ? "NoPadlock" : ""
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
       </div>
     </div>
     
     </div>
-        `
+        `;
   }
 
-
   Pick(e) {
-    console.log(e)
+    console.log(e);
     if (e <= this.level) {
-      this.silhouette = e
+      this.silhouette = e;
     }
-
   }
 
   moveEyesLeft() {
-    console.log(this.eyes)
+    console.log(this.eyes);
     if (this.eyes > 1) {
       this.eyes--;
       this.allowMoveEyesRight = true;
@@ -313,7 +357,7 @@ export class MonsterCreator extends LitElement {
   }
 
   moveEyesRight() {
-    console.log(this.eyes)
+    console.log(this.eyes);
     if (this.eyes < this.NUMBER_OF_IMAGES_EYES && this.eyes < this.level) {
       this.eyes++;
       this.allowMoveEyesLeft = true;
@@ -321,7 +365,7 @@ export class MonsterCreator extends LitElement {
   }
 
   moveMouthLeft() {
-    console.log('move mouth left ' + this.mouth)
+    console.log("move mouth left " + this.mouth);
     if (this.mouth > 1) {
       this.mouth--;
       this.allowMouthMoveRight = true;
