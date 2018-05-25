@@ -2,18 +2,18 @@ import { LitElement, html } from "@polymer/lit-element";
 
 import "@polymer/iron-icons/iron-icons.js";
 
-// import "./images/silhouette/silhouette1.png";
-// import "./images/silhouette/silhouette2.png";
-// import "./images/silhouette/silhouette3.png";
-// import "./images/silhouette/silhouette4.png";
+import "silhouette1.png";
+import "silhouette2.png";
+import "silhouette3.png";
+import "silhouette4.png";
 
-// import "./images/eyes/eyes1.png";
-// import "./images/eyes/eyes2.png";
-// import "./images/eyes/eyes3.png";
+import "eyes1.png";
+import "eyes2.png";
+import "eyes3.png";
 
-// import "./images/mouths/mouth1.png";
-// import "./images/mouths/mouth2.png";
-// import "./images/mouths/mouth3.png";
+import "mouth1.png";
+import "mouth2.png";
+import "mouth3.png";
 
 export class MonsterCreator extends LitElement {
   constructor() {
@@ -235,7 +235,7 @@ export class MonsterCreator extends LitElement {
     <div class="CharacterCustomizeMain">
     
       <div class='SilhouetteBackgroundContainer'>
-        <img width=80% style='display: block; margin: 0 auto' src='./images/silhouette/silhouette${silhouette}.png'>
+        <img width=80% style='display: block; margin: 0 auto' src='silhouette${silhouette}.png'>
       </div>
     
     
@@ -250,7 +250,7 @@ export class MonsterCreator extends LitElement {
           </div>
     
           <div style="width:30%">
-            <img width="100%" src="./images/eyes/eyes${eyes}.png">
+            <img width="100%" src="eyes${eyes}.png">
           </div>
     
           <div class$="${this.customize ? "" : "DisableCustomize"}">
@@ -278,7 +278,7 @@ export class MonsterCreator extends LitElement {
         </div>
     
         <div style="width:30%">
-          <img id="mouth" style="width:100%;" src="./images/mouths/mouth${mouth}.png">
+          <img id="mouth" style="width:100%;" src="mouth${mouth}.png">
         </div>
     
         <div class$="${this.customize ? "" : "DisableCustomize"}">
@@ -299,7 +299,7 @@ export class MonsterCreator extends LitElement {
     
       <div on-click="${() =>
         this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil1" src="./images/silhouette/silhouette1.png">
+        <img style="grid-area:main;width:100%" class="sil1" src="silhouette1.png">
         <iron-icon class$="${
           this.level >= 1 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
@@ -312,12 +312,12 @@ export class MonsterCreator extends LitElement {
           this.level >= 2 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
-        <img style="grid-area:main;width:100%" class="sil2" src="./images/silhouette/silhouette2.png">
+        <img style="grid-area:main;width:100%" class="sil2" src="silhouette2.png">
       </div>
     
       <div on-click="${() =>
         this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil3" src="./images/silhouette/silhouette3.png">
+        <img style="grid-area:main;width:100%" class="sil3" src="silhouette3.png">
         <iron-icon class$="${
           this.level >= 3 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
@@ -325,7 +325,7 @@ export class MonsterCreator extends LitElement {
       </div>
       <div on-click="${() =>
         this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil4" on-click='PickSilhouetee(4)' src="./images/silhouette/silhouette4.png">
+        <img style="grid-area:main;width:100%" class="sil4" on-click='PickSilhouetee(4)' src="silhouette4.png">
         <iron-icon class$="${
           this.level >= 4 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
