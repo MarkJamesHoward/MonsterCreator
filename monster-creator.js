@@ -190,7 +190,7 @@ export class MonsterCreator extends LitElement {
       .LeftArrow {
         margin-left: 2%;
         /* background: url(/images/arrows/previous.png) no-repeat center; */
-        background: url(/images/previous.png) no-repeat center;
+        background: url(/images/arrows/previous.png) no-repeat center;
         background-size: contain;
       }
     
@@ -242,7 +242,7 @@ export class MonsterCreator extends LitElement {
     
       .RightArrow {
         margin-right: 2%;
-        background: url(/images/next.png) no-repeat center;
+        background: url(/images/arrows/next.png) no-repeat center;
         /* background: url(/images/arrows/next.png) no-repeat center; */
         background-size: contain;
       }
