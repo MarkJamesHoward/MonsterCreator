@@ -2,19 +2,6 @@ import { LitElement, html } from "@polymer/lit-element";
 
 import "@polymer/iron-icons/iron-icons.js";
 
-import "silhouette1.png";
-import "silhouette2.png";
-import "silhouette3.png";
-import "silhouette4.png";
-
-import "eyes1.png";
-import "eyes2.png";
-import "eyes3.png";
-
-import "mouth1.png";
-import "mouth2.png";
-import "mouth3.png";
-
 export class MonsterCreator extends LitElement {
   constructor() {
     console.log("created");
@@ -24,10 +11,10 @@ export class MonsterCreator extends LitElement {
     this.allowMoveEyesLeft = true;
     this.allowMoveEyesRight = true;
     this.eyes = 1;
-    this.mouth = 4;
+    this.mouth = 1;
     this.silhouette = 1;
-    this.NUMBER_OF_IMAGES_EYES = 6;
-    this.NUMBER_OF_IMAGES_MOUTH = 9;
+    this.NUMBER_OF_IMAGES_EYES = 3;
+    this.NUMBER_OF_IMAGES_MOUTH = 3;
     this.NUMBER_OF_IMAGES_SILHOUETTES = 4;
     this.locks = [];
     this.level = 1;
@@ -45,8 +32,6 @@ export class MonsterCreator extends LitElement {
       customize: Boolean,
       allowMoveEyesRight: Boolean,
       allowMoveEyesLeft: Boolean,
-      showMouthMoveLeft: Boolean,
-      showMouthMoveRight: Boolean,
       allowMouthMoveRight: Boolean,
       allowMouthMoveLeft: Boolean,
       locks: Array
@@ -117,6 +102,10 @@ export class MonsterCreator extends LitElement {
         display: none;
       }
     
+      .hidden {
+        display: none;
+      }
+
       .DisableCustomize {
         visibility: hidden;
       }
@@ -200,7 +189,8 @@ export class MonsterCreator extends LitElement {
     
       .LeftArrow {
         margin-left: 2%;
-        background: url(/images/arrows/previous.png) no-repeat center;
+        /* background: url(/images/arrows/previous.png) no-repeat center; */
+        background: url(/previous.png) no-repeat center;
         background-size: contain;
       }
     
@@ -213,6 +203,30 @@ export class MonsterCreator extends LitElement {
       div.RightArrow:hover {
         transform: scale(1.1);
         cursor: pointer;
+      }
+
+      .MissingImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 10%;
+        height: 100%;
+      }
+
+      ::slotted(img) {
+        grid-area:main;
+        width:100%
+      } 
+
+      ::slotted(img.SilhouetteSlot) {
+        width:80%;
+        display: block; 
+        margin: 0 auto;
+      }
+
+      ::slotted(img.MouthSlot), ::slotted(img.EyesSlot) {
+        width:100%;
       }
     
       .RightArrow,
@@ -228,14 +242,28 @@ export class MonsterCreator extends LitElement {
     
       .RightArrow {
         margin-right: 2%;
-        background: url(/images/arrows/next.png) no-repeat center;
+        background: url(/next.png) no-repeat center;
+        /* background: url(/images/arrows/next.png) no-repeat center; */
         background-size: contain;
       }
     </style>
     <div class="CharacterCustomizeMain">
     
       <div class='SilhouetteBackgroundContainer'>
-        <img width=80% style='display: block; margin: 0 auto' src='silhouette${silhouette}.png'>
+
+              <div class$="${this.silhouette === 1 ? "" : "hidden"}">
+                <slot name="pickedsilhouette1" >I need a body please!</slot>
+              </div>
+              <div class$="${this.silhouette === 2 ? "" : "hidden"}">
+                <slot name="pickedsilhouette2" >I need a body please!</slot>
+              </div>
+              <div class$="${this.silhouette === 3 ? "" : "hidden"}">
+                <slot name="pickedsilhouette3" >I need a body please!</slot>
+              </div>
+              <div class$="${this.silhouette === 4 ? "" : "hidden"}">
+                <slot name="pickedsilhouette4" >I need a body please!</slot>
+              </div>
+
       </div>
     
     
@@ -250,7 +278,17 @@ export class MonsterCreator extends LitElement {
           </div>
     
           <div style="width:30%">
-            <img width="100%" src="eyes${eyes}.png">
+            
+              <div class$="${this.eyes === 1 ? "" : "hidden"}">
+                <slot name="EyesSlot1" >I need a body please!</slot>
+              </div>
+              <div class$="${this.eyes === 2 ? "" : "hidden"}">
+                <slot name="EyesSlot2" >I need a body please!</slot>
+              </div>
+              <div class$="${this.eyes === 3 ? "" : "hidden"}">
+                <slot name="EyesSlot3" >I need a body please!</slot>
+              </div>
+
           </div>
     
           <div class$="${this.customize ? "" : "DisableCustomize"}">
@@ -263,13 +301,11 @@ export class MonsterCreator extends LitElement {
           </div>
     
         </div>
+
       </div>
     
-    
-    
-    
-    <div class="mouthselector">
-      <div class='mouth'>
+      <div class="mouthselector">
+        <div class='mouth'>
     
         <div class$="${this.customize ? "" : "DisableCustomize"}">
           <div class$="${
@@ -278,7 +314,15 @@ export class MonsterCreator extends LitElement {
         </div>
     
         <div style="width:30%">
-          <img id="mouth" style="width:100%;" src="mouth${mouth}.png">
+          <div class$="${this.mouth === 1 ? "" : "hidden"}">
+                <slot name="MouthSlot1" >I need a mouth to eat please!</slot>
+              </div>
+              <div class$="${this.mouth === 2 ? "" : "hidden"}">
+                <slot name="MouthSlot2" >I need a mouth to eat please!</slot>
+              </div>
+              <div class$="${this.mouth === 3 ? "" : "hidden"}">
+                <slot name="MouthSlot3" >I need a mouth to eat please!</slot>
+              </div>
         </div>
     
         <div class$="${this.customize ? "" : "DisableCustomize"}">
@@ -291,7 +335,9 @@ export class MonsterCreator extends LitElement {
         </div>
 
       </div>
+
     </div>
+        
     
     <div id='SilhouetteSelector' class$="${
       this.customize ? "silhouette" : "DisableCustomize"
@@ -299,33 +345,33 @@ export class MonsterCreator extends LitElement {
     
       <div on-click="${() =>
         this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil1" src="silhouette1.png">
+        <slot  name="silhouette1"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
         <iron-icon class$="${
           this.level >= 1 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
-      </div>
-    
-      <div on-click="${() =>
-        this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
+        </div>
+        
+        <div on-click="${() =>
+          this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
         <iron-icon class$="${
           this.level >= 2 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-          icon="lock"></iron-icon>
-        <img style="grid-area:main;width:100%" class="sil2" src="silhouette2.png">
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center" icon="lock"></iron-icon>
+        <slot  name="silhouette2"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
       </div>
-    
+      
       <div on-click="${() =>
         this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil3" src="silhouette3.png">
+        <slot  name="silhouette3"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
         <iron-icon class$="${
           this.level >= 3 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
           icon="lock"></iron-icon>
       </div>
+
       <div on-click="${() =>
         this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <img style="grid-area:main;width:100%" class="sil4" on-click='PickSilhouetee(4)' src="silhouette4.png">
+        <slot   name="silhouette4"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
         <iron-icon class$="${
           this.level >= 4 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
