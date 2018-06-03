@@ -13,9 +13,9 @@ export class MonsterCreator extends LitElement {
     this.eyes = 1;
     this.mouth = 1;
     this.silhouette = 1;
-    this.NUMBER_OF_IMAGES_EYES = 3;
-    this.NUMBER_OF_IMAGES_MOUTH = 3;
-    this.NUMBER_OF_IMAGES_SILHOUETTES = 4;
+    this.NUMBER_OF_IMAGES_EYES = 4;
+    this.NUMBER_OF_IMAGES_MOUTH = 4;
+    this.NUMBER_OF_IMAGES_SILHOUETTES = 5;
     this.locks = [];
     this.level = 1;
   }
@@ -186,26 +186,7 @@ export class MonsterCreator extends LitElement {
       .overlay {
         display: grid;
       }
-    
-      .LeftArrow {
-        margin-left: 2%;
-        /* background: url(/images/arrows/previous.png) no-repeat center; */
-        background: url(/images/arrows/previous.png) no-repeat center;
-        background-size: contain;
-      }
-    
-    
-      div.LeftArrow:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
-    
-      div.RightArrow:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
-
-      .MissingImage {
+        .MissingImage {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -231,24 +212,35 @@ export class MonsterCreator extends LitElement {
     
       .RightArrow,
       .LeftArrow {
-        width: 5vmin;
-        height: 5vmin;
+        width: 10vmin;
+        height: 10vmin;
         transition: all 0.2s ease-in-out;
+        background-color: red;
+        border-radius: 50%;
+        border: 2vmin solid black;
+      }
+
+      .LeftArrow:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      .RightArrow:hover {
+        transform: scale(1.1);
+        cursor: pointer;
       }
     
       .ArrowDisabled {
         opacity: 0.4;
       }
     
-      .RightArrow {
-        margin-right: 2%;
-        background: url(/images/arrows/next.png) no-repeat center;
-        /* background: url(/images/arrows/next.png) no-repeat center; */
-        background-size: contain;
-      }
+
     </style>
     <div class="CharacterCustomizeMain">
     
+    <iron-icon icon="maps:directions-bus">right arrw</iron-icon>
+
+
       <div class='SilhouetteBackgroundContainer'>
 
               <div class$="${this.silhouette === 1 ? "" : "hidden"}">
@@ -263,6 +255,9 @@ export class MonsterCreator extends LitElement {
               <div class$="${this.silhouette === 4 ? "" : "hidden"}">
                 <slot name="pickedsilhouette4" >I need a body please!</slot>
               </div>
+              <div class$="${this.silhouette === 5 ? "" : "hidden"}">
+                <slot name="pickedsilhouette5" >I need a body please!</slot>
+              </div>
 
       </div>
     
@@ -271,11 +266,16 @@ export class MonsterCreator extends LitElement {
         <div class='eyes'>
     
           <div class$="${this.customize ? "" : "DisableCustomize"}">
-            <div class$="${
-              this.AllowEyesMoveLeft() ? "LeftArrow" : "LeftArrow ArrowDisabled"
-            }" on-click='${() => this.moveEyesLeft()}'>
-            </div>
+              <iron-icon icon="arrow-back" class$="${
+                this.AllowEyesMoveLeft()
+                  ? "LeftArrow"
+                  : "LeftArrow ArrowDisabled"
+              }" 
+              on-click="${() => this.moveEyesLeft()}">
+            </iron-icon>
           </div>
+
+
     
           <div style="width:30%">
             
@@ -289,28 +289,35 @@ export class MonsterCreator extends LitElement {
                 <slot name="EyesSlot3" >I need a body please!</slot>
               </div>
 
+              <div class$="${this.eyes === 4 ? "" : "hidden"}">
+                <slot name="EyesSlot4" >I need a body please!</slot>
+              </div>
+
           </div>
     
           <div class$="${this.customize ? "" : "DisableCustomize"}">
-            <div class$="${
-              this.AllowEyesMoveRight()
-                ? "RightArrow"
-                : "RightArrow ArrowDisabled"
-            }" on-click='${() => this.moveEyesRight()}'>
-            </div>
+              <iron-icon icon="arrow-forward" class$="${
+                this.AllowEyesMoveRight()
+                  ? "RightArrow"
+                  : "RightArrow ArrowDisabled"
+              }" 
+              on-click="${() => this.moveEyesRight()}">
+            </iron-icon>
           </div>
-    
+
         </div>
 
       </div>
     
       <div class="mouthselector">
         <div class='mouth'>
-    
+        
         <div class$="${this.customize ? "" : "DisableCustomize"}">
-          <div class$="${
+          <iron-icon icon="arrow-back" class$="${
             this.AllowMouthMoveLeft() ? "LeftArrow" : "LeftArrow ArrowDisabled"
-          }" on-click="${() => this.moveMouthLeft()}"></div>
+          }" 
+          on-click="${() => this.moveMouthLeft()}">
+        </iron-icon>
         </div>
     
         <div style="width:30%">
@@ -323,15 +330,19 @@ export class MonsterCreator extends LitElement {
               <div class$="${this.mouth === 3 ? "" : "hidden"}">
                 <slot name="MouthSlot3" >I need a mouth to eat please!</slot>
               </div>
+              <div class$="${this.mouth === 4 ? "" : "hidden"}">
+                <slot name="MouthSlot4" >I need a mouth to eat please!</slot>
+              </div>
         </div>
     
         <div class$="${this.customize ? "" : "DisableCustomize"}">
-          <div class$="${
+          <iron-icon icon="arrow-forward" class$="${
             this.AllowMouthMoveRight()
               ? "RightArrow"
               : "RightArrow ArrowDisabled"
-          }" on-click="${() => this.moveMouthRight()}">
-          </div>
+          }" 
+          on-click="${() => this.moveMouthRight()}">
+        </iron-icon>
         </div>
 
       </div>
@@ -357,12 +368,12 @@ export class MonsterCreator extends LitElement {
         <iron-icon class$="${
           this.level >= 2 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center" icon="lock"></iron-icon>
-        <slot  name="silhouette2"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
+        <slot  name="silhouette2"><div class="MissingImage">Please supply Silhouette2.png</div></slot>
       </div>
       
       <div on-click="${() =>
         this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot  name="silhouette3"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
+        <slot  name="silhouette3"><div class="MissingImage">Please supply Silhouette3.png</div></slot>
         <iron-icon class$="${
           this.level >= 3 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
@@ -371,7 +382,16 @@ export class MonsterCreator extends LitElement {
 
       <div on-click="${() =>
         this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot   name="silhouette4"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
+        <slot   name="silhouette4"><div class="MissingImage">Please supply Silhouette4.png</div></slot>
+        <iron-icon class$="${
+          this.level >= 4 ? "NoPadlock" : ""
+        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+          icon="lock"></iron-icon>
+      </div>
+
+      <div on-click="${() =>
+        this.Pick(5)}" class="OverlayTwoItemsCharacter silhouettePicker">
+        <slot   name="silhouette5"><div class="MissingImage">Please supply Silhouette5.png</div></slot>
         <iron-icon class$="${
           this.level >= 4 ? "NoPadlock" : ""
         }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
