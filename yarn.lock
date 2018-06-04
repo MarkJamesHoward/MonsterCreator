@@ -6,6 +6,27 @@
   version "3.0.0-pre.19"
   resolved "https://registry.npmjs.org/@polymer/font-roboto/-/font-roboto-3.0.0-pre.19.tgz#d67384a000eebb2632c00c268182a8528aca4a7c"
 
+"@polymer/iron-a11y-keys-behavior@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/iron-a11y-keys-behavior/-/iron-a11y-keys-behavior-3.0.0-pre.19.tgz#4a335111c773af9c4376237be483ee196ab2d966"
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-behaviors@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/iron-behaviors/-/iron-behaviors-3.0.0-pre.19.tgz#0f44cf7068f9d581b896980f18556706ea0c6eaa"
+  dependencies:
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-checked-element-behavior@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/iron-checked-element-behavior/-/iron-checked-element-behavior-3.0.0-pre.19.tgz#c79c8529c7bddf8b3fc5da1e81c938a286e424aa"
+  dependencies:
+    "@polymer/iron-form-element-behavior" "^3.0.0-pre.19"
+    "@polymer/iron-validatable-behavior" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-demo-helpers@^3.0.0-pre.19":
   version "3.0.0-pre.19"
   resolved "https://registry.npmjs.org/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.0.0-pre.19.tgz#15f1d5b94884e97dc5cbb15ee129367fca20fadb"
@@ -20,6 +41,12 @@
 "@polymer/iron-flex-layout@^3.0.0-pre.19":
   version "3.0.0-pre.19"
   resolved "https://registry.npmjs.org/@polymer/iron-flex-layout/-/iron-flex-layout-3.0.0-pre.19.tgz#35f633ab4d4e14e44650722729128e4f5968c1e9"
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-form-element-behavior@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/iron-form-element-behavior/-/iron-form-element-behavior-3.0.0-pre.19.tgz#0fee7892af6a79cea7ef7ef1c7f738ac9f916ec6"
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -58,6 +85,13 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-validatable-behavior@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/iron-validatable-behavior/-/iron-validatable-behavior-3.0.0-pre.19.tgz#2168f83466e85a2caa329f0b9db7060d2de38a7d"
+  dependencies:
+    "@polymer/iron-meta" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/lit-element@^0.5.1":
   version "0.5.1"
   resolved "https://registry.npmjs.org/@polymer/lit-element/-/lit-element-0.5.1.tgz#ab1b21391787082023852e95e65e60015dfdaa00"
@@ -71,6 +105,39 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
     marked "~0.3.9"
+
+"@polymer/paper-behaviors@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/paper-behaviors/-/paper-behaviors-3.0.0-pre.19.tgz#02fdf0accf86f3f3836b82e333776ca5e9eeb25a"
+  dependencies:
+    "@polymer/iron-behaviors" "^3.0.0-pre.19"
+    "@polymer/iron-checked-element-behavior" "^3.0.0-pre.19"
+    "@polymer/paper-ripple" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/paper-icon-button@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.0-pre.19.tgz#e478b5838363285394c3c1a3addd72d3bb1d789b"
+  dependencies:
+    "@polymer/iron-icon" "^3.0.0-pre.19"
+    "@polymer/paper-behaviors" "^3.0.0-pre.19"
+    "@polymer/paper-styles" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/paper-ripple@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/paper-ripple/-/paper-ripple-3.0.0-pre.19.tgz#9e72d59d07c954a0e3de70b44a12c66a508b80ee"
+  dependencies:
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/paper-styles@^3.0.0-pre.19":
+  version "3.0.0-pre.19"
+  resolved "https://registry.npmjs.org/@polymer/paper-styles/-/paper-styles-3.0.0-pre.19.tgz#72ba066b0de9153d835639ebe63ce2afbe5425b0"
+  dependencies:
+    "@polymer/font-roboto" "^3.0.0-pre.19"
+    "@polymer/iron-flex-layout" "^3.0.0-pre.19"
+    "@polymer/polymer" "^3.0.0"
 
 "@polymer/polymer@^3.0.0", "@polymer/polymer@^3.0.0-pre.13":
   version "3.0.2"

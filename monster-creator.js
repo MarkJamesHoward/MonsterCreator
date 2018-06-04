@@ -1,6 +1,7 @@
 import { LitElement, html } from "@polymer/lit-element";
 
 import "@polymer/iron-icons/iron-icons.js";
+import "@polymer/paper-icon-button";
 
 export class MonsterCreator extends LitElement {
   constructor() {
@@ -14,7 +15,7 @@ export class MonsterCreator extends LitElement {
     this.mouth = 1;
     this.silhouette = 1;
     this.NUMBER_OF_IMAGES_EYES = 4;
-    this.NUMBER_OF_IMAGES_MOUTH = 4;
+    this.NUMBER_OF_IMAGES_MOUTH = 5;
     this.NUMBER_OF_IMAGES_SILHOUETTES = 5;
     this.locks = [];
     this.level = 1;
@@ -212,22 +213,17 @@ export class MonsterCreator extends LitElement {
     
       .RightArrow,
       .LeftArrow {
-        width: 10vmin;
-        height: 10vmin;
         transition: all 0.2s ease-in-out;
         background-color: red;
-        border-radius: 50%;
-        border: 2vmin solid black;
+        <!-- border-radius: 5%; -->
+        font-size: 30px; font-weight: 2000;
       }
 
-      .LeftArrow:hover {
-        transform: scale(1.1);
-        cursor: pointer;
+      .LeftArrow:hover, .RightArrow:hover {
       }
 
-      .RightArrow:hover {
+      --paper-icon-button-hover {
         transform: scale(1.1);
-        cursor: pointer;
       }
     
       .ArrowDisabled {
@@ -280,17 +276,16 @@ export class MonsterCreator extends LitElement {
           <div style="width:30%">
             
               <div class$="${this.eyes === 1 ? "" : "hidden"}">
-                <slot name="EyesSlot1" >I need a body please!</slot>
+                <slot name="EyesSlot1" >I need eyes please!</slot>
               </div>
               <div class$="${this.eyes === 2 ? "" : "hidden"}">
-                <slot name="EyesSlot2" >I need a body please!</slot>
+                <slot name="EyesSlot2" >I need eyes please!</slot>
               </div>
               <div class$="${this.eyes === 3 ? "" : "hidden"}">
-                <slot name="EyesSlot3" >I need a body please!</slot>
+                <slot name="EyesSlot3" >I need eyes please!</slot>
               </div>
-
               <div class$="${this.eyes === 4 ? "" : "hidden"}">
-                <slot name="EyesSlot4" >I need a body please!</slot>
+                <slot name="EyesSlot4" >I need eyes please!</slot>
               </div>
 
           </div>
@@ -333,16 +328,19 @@ export class MonsterCreator extends LitElement {
               <div class$="${this.mouth === 4 ? "" : "hidden"}">
                 <slot name="MouthSlot4" >I need a mouth to eat please!</slot>
               </div>
+              <div class$="${this.mouth === 5 ? "" : "hidden"}">
+                <slot name="MouthSlot5" >I need a mouth to eat please!</slot>
+              </div>
         </div>
     
         <div class$="${this.customize ? "" : "DisableCustomize"}">
-          <iron-icon icon="arrow-forward" class$="${
+          <paper-icon-button icon="arrow-forward" class$="${
             this.AllowMouthMoveRight()
               ? "RightArrow"
               : "RightArrow ArrowDisabled"
           }" 
           on-click="${() => this.moveMouthRight()}">
-        </iron-icon>
+        </paper-icon-button>
         </div>
 
       </div>
