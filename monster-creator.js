@@ -1,9 +1,11 @@
 import { LitElement, html } from "@polymer/lit-element";
+import { GestureEventListeners } from "@polymer/polymer/lib/mixins/gesture-event-listeners.js";
+import * as Gestures from "@polymer/polymer/lib/utils/gestures.js";
 
 import "@polymer/iron-icons/iron-icons.js";
 import "@polymer/paper-icon-button";
 
-export class MonsterCreator extends LitElement {
+export class MonsterCreator extends GestureEventListeners(LitElement) {
   constructor() {
     console.log("created");
     super();
@@ -19,6 +21,24 @@ export class MonsterCreator extends LitElement {
     this.NUMBER_OF_IMAGES_SILHOUETTES = 5;
     this.locks = [];
     this.level = 1;
+
+    Gestures.addListener(this, "track", this.handleTrack.bind(this));
+  }
+
+  handleTrack(e) {
+    console.log("handling track " + e.detail.state);
+    switch (e.detail.state) {
+      case "start":
+        this.message = "Tracking started!";
+        break;
+      case "track":
+        this.message =
+          "Tracking in progress... " + e.detail.x + ", " + e.detail.y;
+        break;
+      case "end":
+        this.message = "Tracking ended!";
+        break;
+    }
   }
 
   static get properties() {
@@ -35,7 +55,8 @@ export class MonsterCreator extends LitElement {
       allowMoveEyesLeft: Boolean,
       allowMouthMoveRight: Boolean,
       allowMouthMoveLeft: Boolean,
-      locks: Array
+      locks: Array,
+      message: String
     };
   }
 
@@ -234,6 +255,8 @@ export class MonsterCreator extends LitElement {
     </style>
     <div class="CharacterCustomizeMain">
     
+    ${this.message}
+
     <iron-icon icon="maps:directions-bus">right arrw</iron-icon>
 
 
