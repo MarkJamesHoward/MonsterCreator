@@ -21,22 +21,195 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
     this.NUMBER_OF_IMAGES_SILHOUETTES = 5;
     this.locks = [];
     this.level = 1;
-
-    Gestures.addListener(this, "track", this.handleTrack.bind(this));
+    this.message = "TESTSTRSDFS";
   }
 
-  handleTrack(e) {
-    console.log("handling track " + e.detail.state);
+  ready() {
+    super.ready();
+
+    Gestures.addListener(
+      this._root.querySelector("#EyesSlot1"),
+      "track",
+      this.handleTrackEye1.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#EyesSlot2"),
+      "track",
+      this.handleTrackEye2.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#EyesSlot3"),
+      "track",
+      this.handleTrackEye3.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#EyesSlot4"),
+      "track",
+      this.handleTrackEye4.bind(this)
+    );
+
+    Gestures.addListener(
+      this._root.querySelector("#MouthSlot1"),
+      "track",
+      this.handleTrackMouth1.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#MouthSlot2"),
+      "track",
+      this.handleTrackMouth2.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#MouthSlot3"),
+      "track",
+      this.handleTrackMouth3.bind(this)
+    );
+    Gestures.addListener(
+      this._root.querySelector("#MouthSlot4"),
+      "track",
+      this.handleTrackMouth4.bind(this)
+    );
+  }
+
+  handleTrackEye1(e) {
+    this.handleTrackEye(e, this._root.querySelector("#EyesSlot1"), 1);
+    this.EyesSlot1Used = true;
+  }
+  handleTrackEye2(e) {
+    this.handleTrackEye(e, this._root.querySelector("#EyesSlot2"), 2);
+    this.EyesSlot2Used = true;
+  }
+  handleTrackEye3(e) {
+    this.handleTrackEye(e, this._root.querySelector("#EyesSlot3"), 3);
+    this.EyesSlot3Used = true;
+  }
+  handleTrackEye4(e) {
+    this.handleTrackEye(e, this._root.querySelector("#EyesSlot4"), 4);
+    this.EyesSlot4Used = true;
+  }
+
+  handleTrackMouth1(e) {
+    this.handleTrackMouth(e, this._root.querySelector("#MouthSlot1"), 1);
+    this.MouthSlot1Used = true;
+  }
+  handleTrackMouth2(e) {
+    this.handleTrackMouth(e, this._root.querySelector("#MouthSlot2"), 2);
+    this.MouthSlot2Used = true;
+  }
+  handleTrackMouth3(e) {
+    this.handleTrackMouth(e, this._root.querySelector("#MouthSlot3"), 3);
+    this.MouthSlot3Used = true;
+  }
+  handleTrackMouth4(e) {
+    this.handleTrackMouth(e, this._root.querySelector("#MouthSlot4"), 4);
+    this.MouthSlot4Used = true;
+  }
+
+  handleTrackEye(e, item, index) {
+    let container = this._root.querySelector("#eyesandsilcontainer");
+    // console.log(container.clientWidth);
+    // console.log(e.detail.sourceEvent.clientX);
+    // console.log("handling track " + e.detail.state);
+    // console.dir(e);
+    switch (index) {
+      case 1:
+        this.EyesSlot2Used = false;
+        this.EyesSlot3Used = false;
+        this.EyesSlot4Used = false;
+        break;
+      case 2:
+        this.EyesSlot1Used = false;
+        this.EyesSlot3Used = false;
+        this.EyesSlot4Used = false;
+        break;
+      case 3:
+        this.EyesSlot1Used = false;
+        this.EyesSlot2Used = false;
+        this.EyesSlot4Used = false;
+        break;
+      case 4:
+        this.EyesSlot1Used = false;
+        this.EyesSlot2Used = false;
+        this.EyesSlot3Used = false;
+        break;
+    }
+    //Reset the position of the other eyes
+
     switch (e.detail.state) {
       case "start":
         this.message = "Tracking started!";
         break;
       case "track":
-        this.message =
-          "Tracking in progress... " + e.detail.x + ", " + e.detail.y;
+        //item.style.left = e.detail.sourceEvent.clientX + "px";
+        item.style.left =
+          (e.detail.sourceEvent.clientX / container.clientWidth) * 100 + "%";
+        item.style.top =
+          (e.detail.sourceEvent.clientY / container.clientHeight) * 100 + "%";
+        //item.style.top = e.detail.sourceEvent.clientY + "px";
+        //this.message = "Tracking in progress... " + x + ", " + y;
+        //console.log("tracing in progress");
         break;
       case "end":
         this.message = "Tracking ended!";
+        console.log("trackng ended - store position");
+        item.trackX = item.style.left;
+        item.trackY = item.style.top;
+        console.log(item.trackX);
+        console.log(item.trackY);
+        break;
+    }
+  }
+
+  handleTrackMouth(e, item, index) {
+    let container = this._root.querySelector("#eyesandsilcontainer");
+    // console.log(container.clientWidth);
+    // console.log(e.detail.sourceEvent.clientX);
+    // console.log("handling track " + e.detail.state);
+    // console.dir(e);
+    switch (index) {
+      case 1:
+        this.MouthSlot2Used = false;
+        this.MouthSlot3Used = false;
+        this.MouthSlot4Used = false;
+        break;
+      case 2:
+        this.MouthSlot1Used = false;
+        this.MouthSlot3Used = false;
+        this.EMouthSlot4Used = false;
+        break;
+      case 3:
+        this.MouthSlot1Used = false;
+        this.MouthSlot2Used = false;
+        this.MouthSlot4Used = false;
+        break;
+      case 4:
+        this.MouthSlot1Used = false;
+        this.MouthSlot2Used = false;
+        this.MouthSlot3Used = false;
+        break;
+    }
+    //Reset the position of the other eyes
+
+    switch (e.detail.state) {
+      case "start":
+        this.message = "Tracking started!";
+        break;
+      case "track":
+        //item.style.left = e.detail.sourceEvent.clientX + "px";
+        item.style.left =
+          (e.detail.sourceEvent.clientX / container.clientWidth) * 100 + "%";
+        item.style.top =
+          (e.detail.sourceEvent.clientY / container.clientHeight) * 100 + "%";
+        //item.style.top = e.detail.sourceEvent.clientY + "px";
+        //this.message = "Tracking in progress... " + x + ", " + y;
+        //console.log("tracing in progress");
+        break;
+      case "end":
+        this.message = "Tracking ended!";
+        console.log("trackng ended - store position");
+        item.trackX = item.style.left;
+        item.trackY = item.style.top;
+        console.log(item.trackX);
+        console.log(item.trackY);
         break;
     }
   }
@@ -51,45 +224,21 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
       NUMBER_OF_IMAGES_MOUTH: Number,
       NUMBER_OF_IMAGES_SILHOUETTES: Number,
       customize: Boolean,
-      allowMoveEyesRight: Boolean,
-      allowMoveEyesLeft: Boolean,
-      allowMouthMoveRight: Boolean,
-      allowMouthMoveLeft: Boolean,
       locks: Array,
-      message: String
+      message: String,
+      EyesSlot1Used: Boolean,
+      EyesSlot2Used: Boolean,
+      EyesSlot3Used: Boolean,
+      EyesSlot4Used: Boolean,
+      MouthSlot2Used: Boolean,
+      MouthSlot3Used: Boolean,
+      MouthSlot4Used: Boolean,
+      MouthSlot1Used: Boolean
     };
   }
 
-  AllowMouthMoveRight() {
-    if (this.mouth >= this.NUMBER_OF_IMAGES_MOUTH || this.mouth >= this.level) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  AllowMouthMoveLeft() {
-    if (this.mouth <= 1) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  AllowEyesMoveRight() {
-    if (this.eyes >= this.NUMBER_OF_IMAGES_EYES || this.eyes >= this.level) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  AllowEyesMoveLeft() {
-    if (this.eyes <= 1) {
-      return false;
-    } else {
-      return true;
-    }
+  LevelUp() {
+    this.level++;
   }
 
   _render({
@@ -101,11 +250,8 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
     NUMBER_OF_IMAGES_MOUTH,
     NUMBER_OF_IMAGES_SILHOUETTES,
     customize,
-    allowMouthMoveLeft,
-    allowMouthMoveRight,
-    allowMoveEyesLeft,
-    allowMoveEyesRight,
-    locks
+    locks,
+    message
   }) {
     return html`
     <style>
@@ -142,8 +288,8 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
         margin: 0;
         max-height: 100vmin;
         display: grid;
-        grid-template-columns: [eyes-start SilhouetteBackground-start mouth-start silhouette-start] 1fr [ SilhouetteBackground-end silhouette-end eyes-end mouth-end];
-        grid-template-rows: [eyes-start SilhouetteBackground-start] 20fr [eyes-end mouth-start] 20fr [mouth-end] 20fr [SilhouetteBackground-end silhouette-start] 40fr [silhouette-end];
+        grid-template-columns: [SilhouetteBackground-start mouth-start silhouette-start] 1fr [ SilhouetteBackground-end silhouette-end mouth-end];
+        grid-template-rows: [SilhouetteBackground-start ] 20fr [mouth-start] 20fr [mouth-end] 20fr [SilhouetteBackground-end silhouette-start] 40fr [silhouette-end];
         border-radius: 10%;
         align-items: center;
         width: 100%;
@@ -161,6 +307,7 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
       }
     
       .character {
@@ -177,15 +324,15 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
         height: 100%;
       }
     
-      .mouthselector {
+      /* .mouthselector {
         grid-area: mouth;
         width: 100%;
-      }
+      } */
     
-      .eyesselector {
+      /* .eyesselector {
         grid-area: eyes;
         width: 100%;
-      }
+      } */
     
       .silhouette {
         grid-area: silhouette;
@@ -228,148 +375,119 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
         margin: 0 auto;
       }
 
-      ::slotted(img.MouthSlot), ::slotted(img.EyesSlot) {
-        width:100%;
-      }
-    
-      .RightArrow,
-      .LeftArrow {
-        transition: all 0.2s ease-in-out;
-        background-color: red;
-        <!-- border-radius: 5%; -->
-        font-size: 30px; font-weight: 2000;
-      }
 
-      .LeftArrow:hover, .RightArrow:hover {
-      }
+    .MouthSlot1, .MouthSlot2 , .MouthSlot3, .MouthSlot4 {
+      position:absolute;
+      width: 20%;
+    }
 
-      --paper-icon-button-hover {
-        transform: scale(1.1);
-      }
+    .EyesSlot1, .EyesSlot2, .EyesSlot3, .EyesSlot4{
+      position:absolute;
+      width: 20%;
+    }
     
-      .ArrowDisabled {
-        opacity: 0.4;
-      }
-    
+    #eyesandsilcontainer {
+      width: 100%;
+    }
 
     </style>
+
+    <button onclick="${() => {
+      this.LevelUp();
+    }}" id="level">Level++</button>
+
+    <div>Level: ${this.level}</div>
+
     <div class="CharacterCustomizeMain">
-    
-    ${this.message}
-
-    <iron-icon icon="maps:directions-bus">right arrw</iron-icon>
-
 
       <div class='SilhouetteBackgroundContainer'>
 
-              <div class$="${this.silhouette === 1 ? "" : "hidden"}">
-                <slot name="pickedsilhouette1" >I need a body please!</slot>
-              </div>
-              <div class$="${this.silhouette === 2 ? "" : "hidden"}">
-                <slot name="pickedsilhouette2" >I need a body please!</slot>
-              </div>
-              <div class$="${this.silhouette === 3 ? "" : "hidden"}">
-                <slot name="pickedsilhouette3" >I need a body please!</slot>
-              </div>
-              <div class$="${this.silhouette === 4 ? "" : "hidden"}">
-                <slot name="pickedsilhouette4" >I need a body please!</slot>
-              </div>
-              <div class$="${this.silhouette === 5 ? "" : "hidden"}">
-                <slot name="pickedsilhouette5" >I need a body please!</slot>
-              </div>
+        <div id="eyesandsilcontainer" style="position:relative">  
 
-      </div>
-    
-    
-      <div class='eyesselector'>
-        <div class='eyes'>
-    
-          <div class$="${this.customize ? "" : "DisableCustomize"}">
-              <iron-icon icon="arrow-back" class$="${
-                this.AllowEyesMoveLeft()
-                  ? "LeftArrow"
-                  : "LeftArrow ArrowDisabled"
-              }" 
-              on-click="${() => this.moveEyesLeft()}">
-            </iron-icon>
+          <div class="eyes">
+            <div id="EyesSlot1" class$="${
+              this.EyesSlot1Used ? "EyesSlot1" : "Eye1ResetPostion"
+            }">
+              <slot name="EyesSlot1" >I need eyes please!</slot>
+            </div>
+
+            <div id="EyesSlot2" class$="${
+              this.EyesSlot2Used ? "EyesSlot2" : "Eye2ResetPostion"
+            }">
+              <slot name="EyesSlot2" >I need eyes please!</slot>
+            </div>
+
+            <div id="EyesSlot3" class$="${
+              this.EyesSlot3Used ? "EyesSlot3" : "Eye3ResetPostion"
+            }">
+              <slot name="EyesSlot3" >I need eyes please!</slot>
+            </div>
+
+            <div class$="${this.level > 3 ? "" : "hidden"}">
+              <div id="EyesSlot4" class$="${
+                this.EyesSlot4Used ? "EyesSlot4" : "Eye4ResetPostion"
+              }">
+                <slot name="EyesSlot4" >I need eyes please!</slot>        
+              </div>
+            </div>
           </div>
 
-
-    
-          <div style="width:30%">
-            
-              <div class$="${this.eyes === 1 ? "" : "hidden"}">
-                <slot name="EyesSlot1" >I need eyes please!</slot>
-              </div>
-              <div class$="${this.eyes === 2 ? "" : "hidden"}">
-                <slot name="EyesSlot2" >I need eyes please!</slot>
-              </div>
-              <div class$="${this.eyes === 3 ? "" : "hidden"}">
-                <slot name="EyesSlot3" >I need eyes please!</slot>
-              </div>
-              <div class$="${this.eyes === 4 ? "" : "hidden"}">
-                <slot name="EyesSlot4" >I need eyes please!</slot>
+          <div class='mouth'>
+              <div class$="${this.level > 0 ? "" : "hidden"}">
+                <div id="MouthSlot1" class$="${
+                  this.MouthSlot1Used ? "MouthSlot1" : "Mouth1ResetPostion"
+                }">
+                  <slot name="MouthSlot1" >I need eyes please!</slot>        
+                </div>
               </div>
 
-          </div>
-    
-          <div class$="${this.customize ? "" : "DisableCustomize"}">
-              <iron-icon icon="arrow-forward" class$="${
-                this.AllowEyesMoveRight()
-                  ? "RightArrow"
-                  : "RightArrow ArrowDisabled"
-              }" 
-              on-click="${() => this.moveEyesRight()}">
-            </iron-icon>
-          </div>
+              <div class$="${this.level > 0 ? "" : "hidden"}">
+                <div id="MouthSlot2" class$="${
+                  this.MouthSlot2Used ? "MouthSlot2" : "Mouth2ResetPostion"
+                }">
+                  <slot name="MouthSlot2" >I need eyes please!</slot>        
+                </div>
+              </div>
 
-        </div>
-
-      </div>
-    
-      <div class="mouthselector">
-        <div class='mouth'>
+              <div class$="${this.level > 0 ? "" : "hidden"}">
+                <div id="MouthSlot3" class$="${
+                  this.MouthSlot3Used ? "MouthSlot3" : "Mouth3ResetPostion"
+                }">
+                  <slot name="MouthSlot3" >I need eyes please!</slot>        
+                </div>
+              </div>
+              
+              <div class$="${this.level > 0 ? "" : "hidden"}">
+                <div id="MouthSlot4" class$="${
+                  this.MouthSlot4Used ? "MouthSlot4" : "Mouth4ResetPostion"
+                }">
+                  <slot name="MouthSlot4" >I need eyes please!</slot>        
+                </div>
+              </div>
         
-        <div class$="${this.customize ? "" : "DisableCustomize"}">
-          <iron-icon icon="arrow-back" class$="${
-            this.AllowMouthMoveLeft() ? "LeftArrow" : "LeftArrow ArrowDisabled"
-          }" 
-          on-click="${() => this.moveMouthLeft()}">
-        </iron-icon>
+          </div>
+          
+        <div class$="${this.silhouette === 1 ? "" : "hidden"}">
+          <slot name="pickedsilhouette1">I need a body please!</slot>
         </div>
-    
-        <div style="width:30%">
-          <div class$="${this.mouth === 1 ? "" : "hidden"}">
-                <slot name="MouthSlot1" >I need a mouth to eat please!</slot>
-              </div>
-              <div class$="${this.mouth === 2 ? "" : "hidden"}">
-                <slot name="MouthSlot2" >I need a mouth to eat please!</slot>
-              </div>
-              <div class$="${this.mouth === 3 ? "" : "hidden"}">
-                <slot name="MouthSlot3" >I need a mouth to eat please!</slot>
-              </div>
-              <div class$="${this.mouth === 4 ? "" : "hidden"}">
-                <slot name="MouthSlot4" >I need a mouth to eat please!</slot>
-              </div>
-              <div class$="${this.mouth === 5 ? "" : "hidden"}">
-                <slot name="MouthSlot5" >I need a mouth to eat please!</slot>
-              </div>
+        <div class$="${this.silhouette === 2 ? "" : "hidden"}">
+          <slot name="pickedsilhouette2">I need a body please!</slot>
         </div>
-    
-        <div class$="${this.customize ? "" : "DisableCustomize"}">
-          <paper-icon-button icon="arrow-forward" class$="${
-            this.AllowMouthMoveRight()
-              ? "RightArrow"
-              : "RightArrow ArrowDisabled"
-          }" 
-          on-click="${() => this.moveMouthRight()}">
-        </paper-icon-button>
+        <div class$="${this.silhouette === 3 ? "" : "hidden"}">
+          <slot name="pickedsilhouette3">I need a body please!</slot>
         </div>
+        <div class$="${this.silhouette === 4 ? "" : "hidden"}">
+          <slot name="pickedsilhouette4">I need a body please!</slot>
+        </div>
+        <div class$="${this.silhouette === 5 ? "" : "hidden"}">
+          <slot name="pickedsilhouette5">I need a body please!</slot>
+        </div>
+
+           </div>
 
       </div>
 
     </div>
-        
     
     <div id='SilhouetteSelector' class$="${
       this.customize ? "silhouette" : "DisableCustomize"
@@ -428,37 +546,6 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
     console.log(e);
     if (e <= this.level) {
       this.silhouette = e;
-    }
-  }
-
-  moveEyesLeft() {
-    console.log(this.eyes);
-    if (this.eyes > 1) {
-      this.eyes--;
-      this.allowMoveEyesRight = true;
-    }
-  }
-
-  moveEyesRight() {
-    console.log(this.eyes);
-    if (this.eyes < this.NUMBER_OF_IMAGES_EYES && this.eyes < this.level) {
-      this.eyes++;
-      this.allowMoveEyesLeft = true;
-    }
-  }
-
-  moveMouthLeft() {
-    console.log("move mouth left " + this.mouth);
-    if (this.mouth > 1) {
-      this.mouth--;
-      this.allowMouthMoveRight = true;
-    }
-  }
-
-  moveMouthRight() {
-    if (this.mouth < this.NUMBER_OF_IMAGES_MOUTH && this.mouth < this.level) {
-      this.mouth++;
-      this.allowMouthMoveLeft = true;
     }
   }
 
