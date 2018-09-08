@@ -286,53 +286,32 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
       .CharacterCustomizeMain {
         padding: 0;
         margin: 0;
-        max-height: 100vmin;
         display: grid;
-        grid-template-columns: [SilhouetteBackground-start mouth-start silhouette-start] 1fr [ SilhouetteBackground-end silhouette-end mouth-end];
-        grid-template-rows: [SilhouetteBackground-start ] 20fr [mouth-start] 20fr [mouth-end] 20fr [SilhouetteBackground-end silhouette-start] 40fr [silhouette-end];
-        border-radius: 10%;
-        align-items: center;
+        grid-template-areas: "Top"
+                              "Bottom";
+        grid-template-rows: 6fr 1fr;
+        grid-template-columns: 1fr;
+      }
+
+          
+      .SilhouetteBackgroundContainer {
+        align-self: top;
+        grid-area: Top;
         width: 100%;
-        height: 100%;
+        height: 30%;
       }
-    
-      .CompleteCharacter {
-        display: none;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-      }
+
+     #SilhouetteSelector {
+       grid-area: Bottom;
+     }
     
       .eyes,
       .mouth {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
         width: 100%;
       }
-    
-      .character {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    
-    
-      .SilhouetteBackgroundContainer {
-        align-self: center;
-        grid-area: SilhouetteBackground;
-        width: 100%;
-        height: 100%;
-      }
-    
-      /* .mouthselector {
-        grid-area: mouth;
-        width: 100%;
-      } */
-    
-      /* .eyesselector {
-        grid-area: eyes;
-        width: 100%;
-      } */
     
       .silhouette {
         grid-area: silhouette;
@@ -467,78 +446,77 @@ export class MonsterCreator extends GestureEventListeners(LitElement) {
         
           </div>
           
-        <div class$="${this.silhouette === 1 ? "" : "hidden"}">
-          <slot name="pickedsilhouette1">I need a body please!</slot>
-        </div>
-        <div class$="${this.silhouette === 2 ? "" : "hidden"}">
-          <slot name="pickedsilhouette2">I need a body please!</slot>
-        </div>
-        <div class$="${this.silhouette === 3 ? "" : "hidden"}">
-          <slot name="pickedsilhouette3">I need a body please!</slot>
-        </div>
-        <div class$="${this.silhouette === 4 ? "" : "hidden"}">
-          <slot name="pickedsilhouette4">I need a body please!</slot>
-        </div>
-        <div class$="${this.silhouette === 5 ? "" : "hidden"}">
-          <slot name="pickedsilhouette5">I need a body please!</slot>
-        </div>
+          <div class$="${this.silhouette === 1 ? "" : "hidden"}">
+            <slot name="pickedsilhouette1">I need a body please!</slot>
+          </div>
+          <div class$="${this.silhouette === 2 ? "" : "hidden"}">
+            <slot name="pickedsilhouette2">I need a body please!</slot>
+          </div>
+          <div class$="${this.silhouette === 3 ? "" : "hidden"}">
+            <slot name="pickedsilhouette3">I need a body please!</slot>
+          </div>
+          <div class$="${this.silhouette === 4 ? "" : "hidden"}">
+            <slot name="pickedsilhouette4">I need a body please!</slot>
+          </div>
+          <div class$="${this.silhouette === 5 ? "" : "hidden"}">
+            <slot name="pickedsilhouette5">I need a body please!</slot>
+          </div>
 
-           </div>
+        </div>
 
       </div>
 
-    </div>
-    
-    <div id='SilhouetteSelector' class$="${
-      this.customize ? "silhouette" : "DisableCustomize"
-    }">
-    
-      <div on-click="${() =>
-        this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot  name="silhouette1"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
-        <iron-icon class$="${
-          this.level >= 1 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-          icon="lock"></iron-icon>
+      <div id='SilhouetteSelector' class$="${
+        this.customize ? "silhouette" : "DisableCustomize"
+      }">
+      
+        <div on-click="${() =>
+          this.Pick(1)}" class="OverlayTwoItemsCharacter silhouettePicker">
+          <slot  name="silhouette1"><div class="MissingImage">Please supply Silhouette1.png</div></slot>
+          <iron-icon class$="${
+            this.level >= 1 ? "NoPadlock" : ""
+          }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+            icon="lock"></iron-icon>
+          </div>
+          
+          <div on-click="${() =>
+            this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
+          <iron-icon class$="${
+            this.level >= 2 ? "NoPadlock" : ""
+          }" style="grid-area:main;z-index:2;align-self:center;justify-self:center" icon="lock"></iron-icon>
+          <slot  name="silhouette2"><div class="MissingImage">Please supply Silhouette2.png</div></slot>
         </div>
         
         <div on-click="${() =>
-          this.Pick(2)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <iron-icon class$="${
-          this.level >= 2 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center" icon="lock"></iron-icon>
-        <slot  name="silhouette2"><div class="MissingImage">Please supply Silhouette2.png</div></slot>
-      </div>
-      
-      <div on-click="${() =>
-        this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot  name="silhouette3"><div class="MissingImage">Please supply Silhouette3.png</div></slot>
-        <iron-icon class$="${
-          this.level >= 3 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-          icon="lock"></iron-icon>
+          this.Pick(3)}" class="OverlayTwoItemsCharacter silhouettePicker">
+          <slot  name="silhouette3"><div class="MissingImage">Please supply Silhouette3.png</div></slot>
+          <iron-icon class$="${
+            this.level >= 3 ? "NoPadlock" : ""
+          }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+            icon="lock"></iron-icon>
+        </div>
+
+        <div on-click="${() =>
+          this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
+          <slot   name="silhouette4"><div class="MissingImage">Please supply Silhouette4.png</div></slot>
+          <iron-icon class$="${
+            this.level >= 4 ? "NoPadlock" : ""
+          }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+            icon="lock"></iron-icon>
+        </div>
+
+        <div on-click="${() =>
+          this.Pick(5)}" class="OverlayTwoItemsCharacter silhouettePicker">
+          <slot   name="silhouette5"><div class="MissingImage">Please supply Silhouette5.png</div></slot>
+          <iron-icon class$="${
+            this.level >= 4 ? "NoPadlock" : ""
+          }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
+            icon="lock"></iron-icon>
+        </div>
       </div>
 
-      <div on-click="${() =>
-        this.Pick(4)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot   name="silhouette4"><div class="MissingImage">Please supply Silhouette4.png</div></slot>
-        <iron-icon class$="${
-          this.level >= 4 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-          icon="lock"></iron-icon>
-      </div>
-
-      <div on-click="${() =>
-        this.Pick(5)}" class="OverlayTwoItemsCharacter silhouettePicker">
-        <slot   name="silhouette5"><div class="MissingImage">Please supply Silhouette5.png</div></slot>
-        <iron-icon class$="${
-          this.level >= 4 ? "NoPadlock" : ""
-        }" style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-          icon="lock"></iron-icon>
-      </div>
-    </div>
+     </div>
     
-    </div>
         `;
   }
 
