@@ -8,6 +8,20 @@ import * as Gestures from "@polymer/polymer/lib/utils/gestures";
 //@ts-ignore
 class MonsterCreator extends GestureEventListeners(LitElement) {
   @property()
+  selectedEyeX;
+  @property()
+  selectedEyeY;
+  @property()
+  selectedEyeIndex;
+  @property()
+  selectedMouthIndex;
+  @property()
+  selectedMouthX;
+  @property()
+  selectedMouthY;
+  @property()
+  selectedSilhouetteIndex;
+  @property()
   eyes = 1;
   @property()
   mouth = 1;
@@ -229,8 +243,9 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         break;
       case "end":
         console.log("trackng ended - store position");
-        item.trackX = item.style.left;
-        item.trackY = item.style.top;
+        this.selectedEyeIndex = index;
+        this.selectedEyeX = item.style.left;
+        this.selectedEyeY = item.style.top;
         console.log(item.trackX);
         console.log(item.trackY);
         break;
@@ -272,19 +287,16 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       case "start":
         break;
       case "track":
-        //item.style.left = e.detail.sourceEvent.clientX + "px";
         item.style.left =
           (e.detail.sourceEvent.clientX / container.clientWidth) * 100 + "%";
         item.style.top =
           (e.detail.sourceEvent.clientY / container.clientHeight) * 100 + "%";
-        //item.style.top = e.detail.sourceEvent.clientY + "px";
-        //this.message = "Tracking in progress... " + x + ", " + y;
-        //console.log("tracing in progress");
         break;
       case "end":
-        console.log("trackng ended - store position");
+        console.log("tracking ended - store position and selected index");
         item.trackX = item.style.left;
         item.trackY = item.style.top;
+        this.selectedMouthIndex = index;
         console.log(item.trackX);
         console.log(item.trackY);
         break;
@@ -566,6 +578,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
     console.log(e);
     if (e <= this.level) {
       this.silhouette = e;
+      this.selectedSilhouetteIndex = e;
     }
   }
 
