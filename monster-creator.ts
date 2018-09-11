@@ -297,6 +297,8 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         item.trackX = item.style.left;
         item.trackY = item.style.top;
         this.selectedMouthIndex = index;
+        this.selectedMouthX = item.style.left;
+        this.selectedMouthY = item.style.top;
         console.log(item.trackX);
         console.log(item.trackY);
         break;
