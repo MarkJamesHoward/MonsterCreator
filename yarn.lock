@@ -2,29 +2,29 @@
 # yarn lockfile v1
 
 
-"@polymer/font-roboto@^3.0.0-pre.19", "@polymer/font-roboto@^3.0.0-pre.25":
+"@polymer/font-roboto@^3.0.0-pre.25", "@polymer/font-roboto@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/font-roboto/-/font-roboto-3.0.1.tgz#0f3e184ce1c09e132653e34cbbbf1014164a986c"
 
-"@polymer/iron-a11y-keys-behavior@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/iron-a11y-keys-behavior/-/iron-a11y-keys-behavior-3.0.0-pre.19.tgz#4a335111c773af9c4376237be483ee196ab2d966"
+"@polymer/iron-a11y-keys-behavior@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-a11y-keys-behavior/-/iron-a11y-keys-behavior-3.0.0.tgz#355a3a8aa58c98fb768f79a42f366e0433f447ed"
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-behaviors@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/iron-behaviors/-/iron-behaviors-3.0.0-pre.19.tgz#0f44cf7068f9d581b896980f18556706ea0c6eaa"
+"@polymer/iron-behaviors@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-behaviors/-/iron-behaviors-3.0.0.tgz#99a018adf2a199546ec68abe254207fc47189d58"
   dependencies:
-    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.19"
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-checked-element-behavior@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/iron-checked-element-behavior/-/iron-checked-element-behavior-3.0.0-pre.19.tgz#c79c8529c7bddf8b3fc5da1e81c938a286e424aa"
+"@polymer/iron-checked-element-behavior@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-checked-element-behavior/-/iron-checked-element-behavior-3.0.0.tgz#377f32f99a3b163fa22e977a759d589f66c4c428"
   dependencies:
-    "@polymer/iron-form-element-behavior" "^3.0.0-pre.19"
-    "@polymer/iron-validatable-behavior" "^3.0.0-pre.19"
+    "@polymer/iron-form-element-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
 "@polymer/iron-demo-helpers@^3.0.0-pre.19":
@@ -38,39 +38,45 @@
     "@polymer/polymer" "^3.0.0"
     "@polymer/prism-element" "^3.0.0-pre.25"
 
-"@polymer/iron-flex-layout@^3.0.0-pre.19", "@polymer/iron-flex-layout@^3.0.0-pre.24", "@polymer/iron-flex-layout@^3.0.0-pre.25":
+"@polymer/iron-flex-layout@^3.0.0-pre.25":
   version "3.0.0-pre.25"
   resolved "https://registry.npmjs.org/@polymer/iron-flex-layout/-/iron-flex-layout-3.0.0-pre.25.tgz#b4a01c244cc0bcaf8f4fad3e7727b66e06874089"
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-form-element-behavior@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/iron-form-element-behavior/-/iron-form-element-behavior-3.0.0-pre.19.tgz#0fee7892af6a79cea7ef7ef1c7f738ac9f916ec6"
+"@polymer/iron-flex-layout@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-flex-layout/-/iron-flex-layout-3.0.0.tgz#c477b82501cecf054284e5c46523ce2494e6a7dd"
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-icon@^3.0.0-pre.19", "@polymer/iron-icon@^3.0.0-pre.24":
-  version "3.0.0-pre.25"
-  resolved "https://registry.npmjs.org/@polymer/iron-icon/-/iron-icon-3.0.0-pre.25.tgz#c5bdb739b4461acca8de81657ccd976a89492ffe"
+"@polymer/iron-form-element-behavior@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-form-element-behavior/-/iron-form-element-behavior-3.0.0.tgz#64b00c78b235f495f0b054524521aaa9cbe56523"
   dependencies:
-    "@polymer/iron-flex-layout" "^3.0.0-pre.24"
-    "@polymer/iron-meta" "^3.0.0-pre.24"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-icons@^3.0.0-pre.19":
-  version "3.0.0-pre.25"
-  resolved "https://registry.npmjs.org/@polymer/iron-icons/-/iron-icons-3.0.0-pre.25.tgz#f5e1b7376bddf3409fe9c9bab9959b3a7a181f0c"
+"@polymer/iron-icon@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-icon/-/iron-icon-3.0.0.tgz#9128937a96ce6b5195395fd7972be514ee32fbf8"
   dependencies:
-    "@polymer/iron-icon" "^3.0.0-pre.24"
-    "@polymer/iron-iconset-svg" "^3.0.0-pre.24"
+    "@polymer/iron-flex-layout" "^3.0.0-pre.26"
+    "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-iconset-svg@^3.0.0-pre.24":
-  version "3.0.0-pre.25"
-  resolved "https://registry.npmjs.org/@polymer/iron-iconset-svg/-/iron-iconset-svg-3.0.0-pre.25.tgz#f710b0497a5f133842d108a3631aa67e53cddc25"
+"@polymer/iron-icons@*":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-icons/-/iron-icons-3.0.0.tgz#33d0d6dd379d671b6818862aacac324918a3f4ee"
   dependencies:
-    "@polymer/iron-meta" "^3.0.0-pre.24"
+    "@polymer/iron-icon" "^3.0.0-pre.26"
+    "@polymer/iron-iconset-svg" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-iconset-svg@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-iconset-svg/-/iron-iconset-svg-3.0.0.tgz#8182fd00479861b4b06d4e91a9920de7ccea71af"
+  dependencies:
+    "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
 "@polymer/iron-location@^3.0.0-pre.25":
@@ -79,24 +85,24 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-meta@^3.0.0-pre.19", "@polymer/iron-meta@^3.0.0-pre.24":
-  version "3.0.0-pre.25"
-  resolved "https://registry.npmjs.org/@polymer/iron-meta/-/iron-meta-3.0.0-pre.25.tgz#c95c44cbda572b6753cea2f022f94c67d5f698a0"
+"@polymer/iron-meta@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-meta/-/iron-meta-3.0.0.tgz#bb9836d2d74f4b318585edc64e3cf91c2563394b"
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-validatable-behavior@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/iron-validatable-behavior/-/iron-validatable-behavior-3.0.0-pre.19.tgz#2168f83466e85a2caa329f0b9db7060d2de38a7d"
+"@polymer/iron-validatable-behavior@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-validatable-behavior/-/iron-validatable-behavior-3.0.0.tgz#f47b6d87cfbf29d3357c588e161b52abea1d0de6"
   dependencies:
-    "@polymer/iron-meta" "^3.0.0-pre.19"
+    "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/lit-element@0.6.0-dev.6":
-  version "0.6.0-dev.6"
-  resolved "https://registry.npmjs.org/@polymer/lit-element/-/lit-element-0.6.0-dev.6.tgz#d60d01061300c8059d9dde3a9c14e03777b6a35d"
+"@polymer/lit-element@*":
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/@polymer/lit-element/-/lit-element-0.6.0.tgz#6ad8ae0f0c749624ad5c5523384d5cd64db30d18"
   dependencies:
-    lit-html "^0.11.0"
+    lit-html "^0.11.2"
 
 "@polymer/marked-element@^3.0.0-pre.25":
   version "3.0.0-pre.25"
@@ -105,38 +111,44 @@
     "@polymer/polymer" "^3.0.0"
     marked "~0.3.9"
 
-"@polymer/paper-behaviors@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/paper-behaviors/-/paper-behaviors-3.0.0-pre.19.tgz#02fdf0accf86f3f3836b82e333776ca5e9eeb25a"
+"@polymer/paper-behaviors@^3.0.0-pre.27":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/paper-behaviors/-/paper-behaviors-3.0.0.tgz#a9596d412a4f3a2a92f5701999f750a8465bed95"
   dependencies:
-    "@polymer/iron-behaviors" "^3.0.0-pre.19"
-    "@polymer/iron-checked-element-behavior" "^3.0.0-pre.19"
-    "@polymer/paper-ripple" "^3.0.0-pre.19"
+    "@polymer/iron-behaviors" "^3.0.0-pre.26"
+    "@polymer/iron-checked-element-behavior" "^3.0.0-pre.26"
+    "@polymer/paper-ripple" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-icon-button@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.0-pre.19.tgz#e478b5838363285394c3c1a3addd72d3bb1d789b"
+"@polymer/paper-icon-button@*":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.0.tgz#71cd0a50dfd8136e2dc1dbf73fa7a49fc167309e"
   dependencies:
-    "@polymer/iron-icon" "^3.0.0-pre.19"
-    "@polymer/paper-behaviors" "^3.0.0-pre.19"
-    "@polymer/paper-styles" "^3.0.0-pre.19"
+    "@polymer/iron-icon" "^3.0.0-pre.26"
+    "@polymer/paper-behaviors" "^3.0.0-pre.27"
+    "@polymer/paper-styles" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-ripple@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/paper-ripple/-/paper-ripple-3.0.0-pre.19.tgz#9e72d59d07c954a0e3de70b44a12c66a508b80ee"
+"@polymer/paper-ripple@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/paper-ripple/-/paper-ripple-3.0.0.tgz#3cffac74c3de8796738dc136ac50c2efdddf3a58"
   dependencies:
-    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.19"
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-styles@^3.0.0-pre.19":
-  version "3.0.0-pre.19"
-  resolved "https://registry.npmjs.org/@polymer/paper-styles/-/paper-styles-3.0.0-pre.19.tgz#72ba066b0de9153d835639ebe63ce2afbe5425b0"
+"@polymer/paper-styles@^3.0.0-pre.26":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@polymer/paper-styles/-/paper-styles-3.0.0.tgz#ba96c761e1eebf8e59f65f189b05353adb97a119"
   dependencies:
-    "@polymer/font-roboto" "^3.0.0-pre.19"
-    "@polymer/iron-flex-layout" "^3.0.0-pre.19"
+    "@polymer/font-roboto" "^3.0.1"
+    "@polymer/iron-flex-layout" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
+
+"@polymer/polymer@*":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@polymer/polymer/-/polymer-3.0.5.tgz#eaa42e70df7de818b5e1839452c82a5f83e39929"
+  dependencies:
+    "@webcomponents/shadycss" "^1.2.0"
 
 "@polymer/polymer@^3.0.0":
   version "3.0.2"
@@ -710,9 +722,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-lit-html@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.npmjs.org/lit-html/-/lit-html-0.11.1.tgz#ad3dcfea1dbaf65fadf335fa1e2bd9ac19255394"
+lit-html@^0.11.2:
+  version "0.11.3"
+  resolved "https://registry.npmjs.org/lit-html/-/lit-html-0.11.3.tgz#34d6eb27ef0c7fdae542c7b50762526704605681"
 
 loader-utils@^1.0.2:
   version "1.1.0"
