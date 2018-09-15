@@ -395,7 +395,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         padding: 0;
         margin: 0;
         height: 50%;
-        width: 100%;
+        width: 50%;
         margin: 0 auto;
         background-color: green;
         border: 5px solid black;
