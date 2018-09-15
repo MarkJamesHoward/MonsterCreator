@@ -394,24 +394,13 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       .CharacterCustomizeMain {
         padding: 0;
         margin: 0;
-        /* display: grid;
-        grid-template-areas: "Top"
-                              "Bottom";
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr; */
+        height: 50%;
+        width: 100%;
+        margin: 0 auto;
+        background-color: green;
+        border: 5px solid black;
       }
-          
-      .SilhouetteBackgroundContainer {
-        align-self: top;
-        grid-area: Top;
-        /* width: 100%;
-        height: 30%; */
-      }
-
-     #SilhouetteSelector {
-       grid-area: Bottom;
-     }
-    
+              
       .eyes,
       .mouth {
         display: flex;
@@ -485,153 +474,149 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
     <div class="CharacterCustomizeMain">
 
-      <div class='SilhouetteBackgroundContainer'>
+      <div id="eyesandsilcontainer" style="position:relative">  
 
-        <div id="eyesandsilcontainer" style="position:relative">  
-
-          <div class="eyes">
-            <div class="${
-              this.customize != "Yes" && this.EyesSlot1Used == false
-                ? "DisableCustomize"
-                : ""
+        <div class="eyes">
+          <div class="${
+            this.customize != "Yes" && this.EyesSlot1Used == false
+              ? "DisableCustomize"
+              : ""
+          }">
+            <div id="EyesSlot1" class="${
+              this.EyesSlot1Used ? "EyesSlot1" : "Eye1ResetPostion"
             }">
-              <div id="EyesSlot1" class="${
-                this.EyesSlot1Used ? "EyesSlot1" : "Eye1ResetPostion"
+              <slot name="EyesSlot1" ></slot>
+            </div>
+          </div>
+
+          <div class="${
+            this.customize != "Yes" && this.EyesSlot2Used == false
+              ? "DisableCustomize"
+              : ""
+          }">
+            <div id="EyesSlot2" class="${
+              this.EyesSlot2Used ? "EyesSlot2" : "Eye2ResetPostion"
+            }">
+              <slot name="EyesSlot2" ></slot>
+            </div>
+          </div>
+
+          <div class="${
+            this.customize != "Yes" && this.EyesSlot3Used == false
+              ? "DisableCustomize"
+              : ""
+          }">
+            <div id="EyesSlot3" class="${
+              this.EyesSlot3Used ? "EyesSlot3" : "Eye3ResetPostion"
+            }">
+              <slot name="EyesSlot3" ></slot>
+            </div>
+          </div>
+
+          <div class="${
+            this.customize != "Yes" && this.EyesSlot4Used == false
+              ? "DisableCustomize"
+              : ""
+          }">
+            <div class="${this.level > 3 ? "" : "hidden"}">
+              <div id="EyesSlot4" class="${
+                this.EyesSlot4Used ? "EyesSlot4" : "Eye4ResetPostion"
               }">
-                <slot name="EyesSlot1" ></slot>
+                <slot name="EyesSlot4" ></slot>        
               </div>
             </div>
+          </div>
 
-            <div class="${
-              this.customize != "Yes" && this.EyesSlot2Used == false
-                ? "DisableCustomize"
-                : ""
-            }">
-              <div id="EyesSlot2" class="${
-                this.EyesSlot2Used ? "EyesSlot2" : "Eye2ResetPostion"
+
+        </div>
+
+        <div class='mouth'>
+
+        <div class="${
+          this.customize != "Yes" && this.MouthSlot1Used == false
+            ? "DisableCustomize"
+            : ""
+        }">
+            <div class="${this.level > 0 ? "" : "hidden"}">
+              <div id="MouthSlot1" class="${
+                this.MouthSlot1Used ? "MouthSlot1" : "Mouth1ResetPostion"
               }">
-                <slot name="EyesSlot2" ></slot>
+                <slot name="MouthSlot1" ></slot>        
               </div>
             </div>
+        </div>
 
-            <div class="${
-              this.customize != "Yes" && this.EyesSlot3Used == false
-                ? "DisableCustomize"
-                : ""
-            }">
-              <div id="EyesSlot3" class="${
-                this.EyesSlot3Used ? "EyesSlot3" : "Eye3ResetPostion"
+        <div class="${
+          this.customize != "Yes" && this.MouthSlot2Used == false
+            ? "DisableCustomize"
+            : ""
+        }">
+            <div class="${this.level > 1 ? "" : "hidden"}">
+              <div id="MouthSlot2" class="${
+                this.MouthSlot2Used ? "MouthSlot2" : "Mouth2ResetPostion"
               }">
-                <slot name="EyesSlot3" ></slot>
+                <slot name="MouthSlot2" ></slot>        
               </div>
             </div>
+        </div>
 
-            <div class="${
-              this.customize != "Yes" && this.EyesSlot4Used == false
-                ? "DisableCustomize"
-                : ""
-            }">
-              <div class="${this.level > 3 ? "" : "hidden"}">
-                <div id="EyesSlot4" class="${
-                  this.EyesSlot4Used ? "EyesSlot4" : "Eye4ResetPostion"
-                }">
-                  <slot name="EyesSlot4" ></slot>        
-                </div>
+        <div class="${
+          this.customize != "Yes" && this.MouthSlot3Used == false
+            ? "DisableCustomize"
+            : ""
+        }">
+            <div class="${this.level > 2 ? "" : "hidden"}">
+              <div id="MouthSlot3" class="${
+                this.MouthSlot3Used ? "MouthSlot3" : "Mouth3ResetPostion"
+              }">
+                <slot name="MouthSlot3" ></slot>        
               </div>
             </div>
-
-
-          </div>
-
-          <div class='mouth'>
-
-          <div class="${
-            this.customize != "Yes" && this.MouthSlot1Used == false
-              ? "DisableCustomize"
-              : ""
-          }">
-              <div class="${this.level > 0 ? "" : "hidden"}">
-                <div id="MouthSlot1" class="${
-                  this.MouthSlot1Used ? "MouthSlot1" : "Mouth1ResetPostion"
-                }">
-                  <slot name="MouthSlot1" ></slot>        
-                </div>
+        </div>
+            
+        <div class="${
+          this.customize != "Yes" && this.MouthSlot4Used == false
+            ? "DisableCustomize"
+            : ""
+        }">
+            <div class="${this.level > 3 ? "" : "hidden"}">
+              <div id="MouthSlot4" class="${
+                this.MouthSlot4Used ? "MouthSlot4" : "Mouth4ResetPostion"
+              }">
+                <slot name="MouthSlot4" ></slot>        
               </div>
-          </div>
-
-          <div class="${
-            this.customize != "Yes" && this.MouthSlot2Used == false
-              ? "DisableCustomize"
-              : ""
-          }">
-              <div class="${this.level > 1 ? "" : "hidden"}">
-                <div id="MouthSlot2" class="${
-                  this.MouthSlot2Used ? "MouthSlot2" : "Mouth2ResetPostion"
-                }">
-                  <slot name="MouthSlot2" ></slot>        
-                </div>
-              </div>
-          </div>
-
-          <div class="${
-            this.customize != "Yes" && this.MouthSlot3Used == false
-              ? "DisableCustomize"
-              : ""
-          }">
-              <div class="${this.level > 2 ? "" : "hidden"}">
-                <div id="MouthSlot3" class="${
-                  this.MouthSlot3Used ? "MouthSlot3" : "Mouth3ResetPostion"
-                }">
-                  <slot name="MouthSlot3" ></slot>        
-                </div>
-              </div>
-          </div>
-              
-          <div class="${
-            this.customize != "Yes" && this.MouthSlot4Used == false
-              ? "DisableCustomize"
-              : ""
-          }">
-              <div class="${this.level > 3 ? "" : "hidden"}">
-                <div id="MouthSlot4" class="${
-                  this.MouthSlot4Used ? "MouthSlot4" : "Mouth4ResetPostion"
-                }">
-                  <slot name="MouthSlot4" ></slot>        
-                </div>
-              </div>
-          </div>
-        
-          </div>
+            </div>
+        </div>
       
-        <div class="OverlayTwoItemsCharacter">
-          <div style="grid-area:main" class="${
-            this.selectedsilhouetteindex == 1 ? "" : "hidden"
-          }">
-            <slot name="pickedsilhouette1"></slot>
-          </div>
-          <div style="grid-area:main" class="${
-            this.selectedsilhouetteindex == 2 ? "" : "hidden"
-          }">
-            <slot name="pickedsilhouette2"></slot>
-          </div>
-          <div style="grid-area:main" class="${
-            this.selectedsilhouetteindex == 3 ? "" : "hidden"
-          }">
-            <slot name="pickedsilhouette3"></slot>
-          </div>
-          <div  style="grid-area:main" class="${
-            this.selectedsilhouetteindex == 4 ? "" : "hidden"
-          }">
-            <slot name="pickedsilhouette4"></slot>
-          </div>
-          <div style="grid-area:main" class="${
-            this.selectedsilhouetteindex == 5 ? "" : "hidden"
-          }">
-            <slot name="pickedsilhouette5"></slot>
-          </div>
         </div>
-
+    
+      <div class="OverlayTwoItemsCharacter">
+        <div style="grid-area:main" class="${
+          this.selectedsilhouetteindex == 1 ? "" : "hidden"
+        }">
+          <slot name="pickedsilhouette1"></slot>
         </div>
+        <div style="grid-area:main" class="${
+          this.selectedsilhouetteindex == 2 ? "" : "hidden"
+        }">
+          <slot name="pickedsilhouette2"></slot>
+        </div>
+        <div style="grid-area:main" class="${
+          this.selectedsilhouetteindex == 3 ? "" : "hidden"
+        }">
+          <slot name="pickedsilhouette3"></slot>
+        </div>
+        <div  style="grid-area:main" class="${
+          this.selectedsilhouetteindex == 4 ? "" : "hidden"
+        }">
+          <slot name="pickedsilhouette4"></slot>
+        </div>
+        <div style="grid-area:main" class="${
+          this.selectedsilhouetteindex == 5 ? "" : "hidden"
+        }">
+          <slot name="pickedsilhouette5"></slot>
+        </div>
+      </div>
 
       </div>
 
@@ -684,8 +669,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         </div>
       </div>
 
-     </div>
-    
+    </div>
         `;
   }
 
