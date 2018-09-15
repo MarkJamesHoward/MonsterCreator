@@ -2,7 +2,7 @@
   "name": "monster-creator",
   "description": "Create your own monster",
   "main": "monster-creator.js",
-  "version": "0.3.0",
+  "version": "0.3.1git",
   "dependencies": {
     "@polymer/iron-icons": "*",
     "@polymer/lit-element": "*",
