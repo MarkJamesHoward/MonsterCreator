@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>monster-creator demo</title>
+
+  <style>
+    #monster {
+      height: 200px;
+      width: 300px;
+      object-fit: contain;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      background-color: 10px solid blue;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <monster-creator id="monster" customize="No" level="5" selectedsilhouetteindex="1" selectedmouthindex="2"
+    selectedeyeindex="1" selectedmouthx="50" selectedmouthy="50" selectedeyex="50" selectedeyey="20">
+    <img slot="silhouette1" class="SilhouetteSlot" src="./images/silhouette/body.png">
+    <img slot="silhouette2" class="SilhouetteSlot" src="./images/silhouette/silhouette2.png">
+    <img slot="silhouette3" class="SilhouetteSlot" src="./images/silhouette/silhouette3.png">
+    <img slot="silhouette4" class="SilhouetteSlot" src="./images/silhouette/silhouette4.png">
+    <img slot="silhouette5" class="SilhouetteSlot" src="./images/silhouette/Slumpbody.png">
+
+    <img slot="pickedsilhouette1" class="SilhouetteSlot" src="./images/silhouette/body.png">
+    <img slot="pickedsilhouette2" class="SilhouetteSlot" src="./images/silhouette/silhouette2.png">
+    <img slot="pickedsilhouette3" class="SilhouetteSlot" src="./images/silhouette/silhouette3.png">
+    <img slot="pickedsilhouette4" class="SilhouetteSlot" src="./images/silhouette/silhouette4.png">
+    <img slot="pickedsilhouette5" class="SilhouetteSlot" src="./images/silhouette/Slumpbody.png">
+
+    <img class="EyeSlot" slot="EyesSlot1" src="./images/eyes/eyes.png">
+    <img class="EyeSlot" slot="EyesSlot2" src="./images/eyes/eyes2.png">
+    <img class="EyeSlot" slot="EyesSlot3" src="./images/eyes/eyes3.png">
+    <img class="EyeSlot" slot="EyesSlot4" src="./images/eyes/Slumpeyes.png">
+
+    <img slot="MouthSlot1" src="./images/mouths/mouth1.png">
+    <img slot="MouthSlot2" src="./images/mouths/mouth2.png">
+    <img slot="MouthSlot3" src="./images/mouths/mouth3.png">
+    <img slot="MouthSlot4" src="./images/mouths/slumpmouth.png">
+    <img slot="MouthSlot5" src="./images/mouths/mouth.png">
+  </monster-creator>
+
+  <script type="module" src="../monster-creator.js"></script>
+
+  <script>
+    function AddLevel(val) {
+      let monster = document.querySelector('#monster');
+      let currentLevel = monster.getAttribute('level') | 0;
+      console.log(currentLevel)
+      monster.setAttribute('level', currentLevel + val)
+    }
+  </script>
+</body>
+
+</html>

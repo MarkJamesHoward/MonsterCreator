@@ -443,7 +443,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         width:50%;
         max-width: 300px;
         display: block; 
-        margin: 0 auto;
+        margin: 0 auto!important;
       }
 
 
@@ -582,30 +582,30 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         </div>
     
       <div class="OverlayTwoItemsCharacter">
-        <div style="grid-area:main" class="${
+        <div style="grid-area:main; margin: 0 auto" class="${
           this.selectedsilhouetteindex == 1 ? "" : "hidden"
         }">
-          <slot name="pickedsilhouette1"></slot>
+          <slot style="margin: 0 auto"  name="pickedsilhouette1"></slot>
         </div>
-        <div style="grid-area:main" class="${
+        <div style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 2 ? "" : "hidden"
         }">
-          <slot name="pickedsilhouette2"></slot>
+          <slot style="margin: 0 auto"  name="pickedsilhouette2"></slot>
         </div>
-        <div style="grid-area:main" class="${
+        <div style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 3 ? "" : "hidden"
         }">
-          <slot name="pickedsilhouette3"></slot>
+          <slot style="margin: 0 auto"  style="margin: 0 auto" name="pickedsilhouette3"></slot>
         </div>
-        <div  style="grid-area:main" class="${
+        <div  style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 4 ? "" : "hidden"
         }">
-          <slot name="pickedsilhouette4"></slot>
+          <slot style="margin: 0 auto"  name="pickedsilhouette4"></slot>
         </div>
-        <div style="grid-area:main" class="${
+        <div style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 5 ? "" : "hidden"
         }">
-          <slot name="pickedsilhouette5"></slot>
+          <slot style="margin: 0 auto"  name="pickedsilhouette5"></slot>
         </div>
       </div>
 
