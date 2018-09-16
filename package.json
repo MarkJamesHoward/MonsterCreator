@@ -4,17 +4,17 @@
   "main": "monster-creator.js",
   "version": "0.3.4",
   "dependencies": {
-    "@polymer/iron-icons": "*",
+    "@polymer/iron-icons": "^3.0.1",
     "@polymer/lit-element": "*",
-    "@polymer/paper-icon-button": "*",
-    "@polymer/polymer": "*"
+    "@polymer/paper-icon-button": "^3.0.1",
+    "@polymer/polymer": "^3.0.5"
   },
   "devDependencies": {
-    "ts-loader": "^5.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.2",
+    "@webcomponents/webcomponentsjs": "^2.1.2",
+    "ts-loader": "^5.1.1",
     "typescript": "^3.0.3",
-    "webpack-hot-middleware": "^2.22.2",
-    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^1.0.0"
+    "wct-browser-legacy": "^1.0.0",
+    "webpack-hot-middleware": "^2.24.0"
   }
 }

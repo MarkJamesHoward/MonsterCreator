@@ -424,7 +424,8 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       .overlay {
         display: grid;
       }
-        .MissingImage {
+      
+      .MissingImage {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -595,7 +596,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         <div style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 3 ? "" : "hidden"
         }">
-          <slot style="margin: 0 auto"  style="margin: 0 auto" name="pickedsilhouette3"></slot>
+          <slot style="margin: 0 auto"  name="pickedsilhouette3"></slot>
         </div>
         <div  style="grid-area:main;  margin: 0 auto" class="${
           this.selectedsilhouetteindex == 4 ? "" : "hidden"
