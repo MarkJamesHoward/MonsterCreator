@@ -1,4 +1,9 @@
-import { LitElement, html, property } from "@polymer/lit-element";
+import {
+  LitElement,
+  html,
+  property,
+  customElement
+} from "@polymer/lit-element";
 import { GestureEventListeners } from "@polymer/polymer/lib/mixins/gesture-event-listeners";
 import * as Gestures from "@polymer/polymer/lib/utils/gestures";
 
@@ -6,6 +11,7 @@ import * as Gestures from "@polymer/polymer/lib/utils/gestures";
 // import "@polymer/paper-icon-button";
 
 //@ts-ignore
+@customElement("monster-creator")
 class MonsterCreator extends GestureEventListeners(LitElement) {
   @property({ type: Number, reflect: true, attribute: true })
   selectedeyex;
@@ -671,10 +677,4 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       this.selectedsilhouetteindex = e;
     }
   }
-
-  static get is() {
-    return "monster-creator";
-  }
 }
-
-customElements.define(MonsterCreator.is, MonsterCreator);
