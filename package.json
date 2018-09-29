@@ -7,7 +7,9 @@
     "@polymer/iron-icons": "^3.0.1",
     "@polymer/lit-element": "*",
     "@polymer/paper-icon-button": "^3.0.1",
-    "@polymer/polymer": "^3.0.5"
+    "@polymer/polymer": "^3.0.5",
+    "flubber": "^0.4.2",
+    "popmotion": "^8.4.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.2",

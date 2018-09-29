@@ -27,9 +27,9 @@
     "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-demo-helpers@^3.0.0-pre.19":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.0.1.tgz#7f2a482360412e33e7054f36248250723aa0f8c5"
+"@polymer/iron-demo-helpers@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.0.2.tgz#ba2503555b6166e75016e072f357cee15b44b03c"
   dependencies:
     "@polymer/font-roboto" "^3.0.0-pre.25"
     "@polymer/iron-flex-layout" "^3.0.0-pre.25"
@@ -64,9 +64,9 @@
     "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-icons@*":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@polymer/iron-icons/-/iron-icons-3.0.0.tgz#33d0d6dd379d671b6818862aacac324918a3f4ee"
+"@polymer/iron-icons@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-icons/-/iron-icons-3.0.1.tgz#c1bd31d8483afbdb5422cdc384081e19c9267cfe"
   dependencies:
     "@polymer/iron-icon" "^3.0.0-pre.26"
     "@polymer/iron-iconset-svg" "^3.0.0-pre.26"
@@ -120,9 +120,9 @@
     "@polymer/paper-ripple" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-icon-button@*":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.0.tgz#71cd0a50dfd8136e2dc1dbf73fa7a49fc167309e"
+"@polymer/paper-icon-button@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.1.tgz#4af7129c82de9d4a0ad59d43e1d3d8ec93414fbf"
   dependencies:
     "@polymer/iron-icon" "^3.0.0-pre.26"
     "@polymer/paper-behaviors" "^3.0.0-pre.27"
@@ -144,15 +144,15 @@
     "@polymer/iron-flex-layout" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/polymer@*":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@polymer/polymer/-/polymer-3.0.5.tgz#eaa42e70df7de818b5e1839452c82a5f83e39929"
-  dependencies:
-    "@webcomponents/shadycss" "^1.2.0"
-
 "@polymer/polymer@^3.0.0":
   version "3.0.2"
   resolved "https://registry.npmjs.org/@polymer/polymer/-/polymer-3.0.2.tgz#626e6f9fae9716b0962ce0211e21df242153eab2"
+  dependencies:
+    "@webcomponents/shadycss" "^1.2.0"
+
+"@polymer/polymer@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@polymer/polymer/-/polymer-3.0.5.tgz#eaa42e70df7de818b5e1839452c82a5f83e39929"
   dependencies:
     "@webcomponents/shadycss" "^1.2.0"
 
@@ -171,6 +171,10 @@
   version "3.0.0-pre.19"
   resolved "https://registry.npmjs.org/@polymer/test-fixture/-/test-fixture-3.0.0-pre.19.tgz#415e16f75da4a242171c5954b6f4443fdca0c4c2"
 
+"@popmotion/easing@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@popmotion/easing/-/easing-1.0.1.tgz#48336aea29542113df10aeb81b4fd10f0b95f937"
+
 "@webcomponents/shadycss@^1.2.0":
   version "1.5.0"
   resolved "https://registry.npmjs.org/@webcomponents/shadycss/-/shadycss-1.5.0.tgz#109e596027eed04bc5032414c9f094e1aeb9260e"
@@ -178,6 +182,10 @@
 "@webcomponents/webcomponentsjs@^2.0.0":
   version "2.1.1"
   resolved "https://registry.npmjs.org/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.1.1.tgz#2884f5a878d0823dd6b3a15a06fb0382c3012d88"
+
+"@webcomponents/webcomponentsjs@^2.1.2":
+  version "2.1.3"
+  resolved "https://registry.npmjs.org/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.1.3.tgz#f7430c6efe52ab06f69d219fddd32afd2758f683"
 
 accessibility-developer-tools@^2.12.0:
   version "2.12.0"
@@ -353,6 +361,10 @@ color-name@1.1.3:
   version "1.1.3"
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
+commander@2:
+  version "2.18.0"
+  resolved "https://registry.npmjs.org/commander/-/commander-2.18.0.tgz#2bf063ddee7c7891176981a2cc798e5754bc6970"
+
 commander@2.9.0:
   version "2.9.0"
   resolved "https://registry.npmjs.org/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
@@ -374,6 +386,14 @@ copy-descriptor@^0.1.0:
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+
+d3-array@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.npmjs.org/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
+
+d3-polygon@^1.0.3:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/d3-polygon/-/d3-polygon-1.0.5.tgz#9a645a0a64ff6cbf9efda96ee0b4a6909184c363"
 
 debug@2.6.8:
   version "2.6.8"
@@ -423,6 +443,10 @@ delegate@^3.1.2:
 diff@3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
+
+earcut@^2.1.1:
+  version "2.1.3"
+  resolved "https://registry.npmjs.org/earcut/-/earcut-2.1.3.tgz#ca579545f351941af7c3d0df49c9f7d34af99b0c"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -493,6 +517,17 @@ fill-range@^4.0.0:
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
 
+flubber@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.npmjs.org/flubber/-/flubber-0.4.2.tgz#14452d4a838cc3b9f2fb6175da94e35acd55fbaa"
+  dependencies:
+    d3-array "^1.2.0"
+    d3-polygon "^1.0.3"
+    earcut "^2.1.1"
+    svg-path-properties "^0.2.1"
+    svgpath "^2.2.1"
+    topojson-client "^3.0.0"
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -508,6 +543,12 @@ fragment-cache@^0.2.1:
   resolved "https://registry.npmjs.org/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
   dependencies:
     map-cache "^0.2.2"
+
+framesync@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/framesync/-/framesync-4.0.0.tgz#4f7d89d9b4960fece330a0d811c84b1602aace03"
+  dependencies:
+    hey-listen "^1.0.5"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -590,6 +631,10 @@ has-values@^1.0.0:
 he@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+
+hey-listen@^1.0.4, hey-listen@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.5.tgz#6d0a3a2f60177f65bc4404d571a00025bf5dc20e"
 
 html-entities@^1.2.0:
   version "1.2.1"
@@ -922,6 +967,17 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
+popmotion@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.npmjs.org/popmotion/-/popmotion-8.4.0.tgz#1152245663ab7a8f154ec83c9e8aefc73bd35db4"
+  dependencies:
+    "@popmotion/easing" "^1.0.1"
+    framesync "^4.0.0"
+    hey-listen "^1.0.5"
+    style-value-types "^3.0.6"
+    stylefire "^2.0.7"
+    tslib "^1.9.1"
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.npmjs.org/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -1113,6 +1169,19 @@ strip-ansi@^3.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
+style-value-types@^3.0.6:
+  version "3.0.7"
+  resolved "https://registry.npmjs.org/style-value-types/-/style-value-types-3.0.7.tgz#6e7a22cc8b1a4465193268ed66ad5f2a82579054"
+
+stylefire@^2.0.7:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/stylefire/-/stylefire-2.1.0.tgz#356dc7951da17f4f55f5f5e6473f2327c17e7077"
+  dependencies:
+    framesync "^4.0.0"
+    hey-listen "^1.0.4"
+    style-value-types "^3.0.6"
+    tslib "^1.9.1"
+
 supports-color@3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
@@ -1128,6 +1197,14 @@ supports-color@^5.3.0:
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
   dependencies:
     has-flag "^3.0.0"
+
+svg-path-properties@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/svg-path-properties/-/svg-path-properties-0.2.2.tgz#b073d81be7292eae0e233ab8a83f58dc27113296"
+
+svgpath@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/svgpath/-/svgpath-2.2.1.tgz#0834bb67c89a76472b2bd06cc101fa7b517b222c"
 
 tapable@^1.0.0:
   version "1.0.0"
@@ -1159,15 +1236,25 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-ts-loader@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-5.0.0.tgz#0715ee31ed229fcdc8df73e87ccd80e6a46cae04"
+topojson-client@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz#1f99293a77ef42a448d032a81aa982b73f360d2f"
+  dependencies:
+    commander "2"
+
+ts-loader@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-5.1.1.tgz#361eeae3cc3c6f63d2e9f421dba90c4b14659aa6"
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
     loader-utils "^1.0.2"
     micromatch "^3.1.4"
     semver "^5.0.1"
+
+tslib@^1.9.1:
+  version "1.9.3"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 
 type-detect@0.1.1:
   version "0.1.1"
@@ -1232,9 +1319,9 @@ wct-browser-legacy@^1.0.0:
     sinon-chai "^2.10.0"
     stacky "^1.3.1"
 
-webpack-hot-middleware@^2.22.2:
-  version "2.23.1"
-  resolved "https://registry.npmjs.org/webpack-hot-middleware/-/webpack-hot-middleware-2.23.1.tgz#56b06abc25821466451fd7d2481a0014aef023bb"
+webpack-hot-middleware@^2.24.0:
+  version "2.24.2"
+  resolved "https://registry.npmjs.org/webpack-hot-middleware/-/webpack-hot-middleware-2.24.2.tgz#0d2deeb813f67693e2997b87c3a9d9be324575dd"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
