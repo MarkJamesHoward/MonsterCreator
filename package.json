@@ -16,7 +16,7 @@
     "@webcomponents/webcomponentsjs": "^2.1.2",
     "ts-loader": "^5.1.1",
     "typescript": "^3.0.3",
-    "wct-browser-legacy": "^1.0.0",
+    "wct-browser-legacy": "^1.0.2",
     "webpack-hot-middleware": "^2.24.0"
   }
 }
