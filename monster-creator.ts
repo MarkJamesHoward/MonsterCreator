@@ -6,7 +6,6 @@ import {
 } from "@polymer/lit-element";
 import { GestureEventListeners } from "@polymer/polymer/lib/mixins/gesture-event-listeners";
 import * as Gestures from "@polymer/polymer/lib/utils/gestures";
-
 import { tween, styler, easing } from "popmotion";
 import { interpolate } from "flubber";
 
@@ -19,7 +18,6 @@ import { interpolate } from "flubber";
 class MonsterCreator extends GestureEventListeners(LitElement) {
   @property({ type: Number, reflect: true, attribute: true })
   selectedeyex;
-  y;
   @property({ type: Number, reflect: true, attribute: true })
   selectedeyey;
   @property({ type: Number, reflect: true, attribute: true })
@@ -624,7 +622,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
           <div class="OverlayTwoItemsCharacter">
             <div
-              style="grid-area:main; margin: 0 auto"
+              style="grid-area:main; margin: 0 auto;"
               class="${this.selectedsilhouetteindex == 1 ? "" : "hidden"}"
             >
               <slot id="pickedsilhouette1" name="pickedsilhouette1"></slot>
@@ -797,19 +795,23 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
   PerformMorph(startShape, targetElement) {
     console.log("StartShape " + (startShape || "no start shape"));
-    console.log("targetElement " + targetElement || "no target element");
+    console.log("targetElement " + (targetElement || "no target element"));
+
     let targetElementPath = targetElement.assignedNodes()[0].childNodes[1];
+
     console.dir(targetElementPath);
-    //@ts-ignore
-    const target = styler(targetElementPath).set("d");
     const endShape = targetElementPath.getAttribute("d");
+    
+    let StartAndEndShapeMorph = interpolate(startShape, endShape, { maxSegmentLength: 2 };
+
+    let target = styler(targetElementPath).set('d');
 
     console.log("Perform Morph");
     tween({
       duration: 700,
       ease: easing.easeInOut
     })
-      .pipe(interpolate(startShape, endShape, { maxSegmentLength: 2 }))
+      .pipe(StartAndEndShapeMorph)
       //@ts-ignore
       .start(target);
   }
@@ -854,7 +856,9 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
   }
 
   Pick(e) {
+    console.log("pick");
     console.log(e);
+    console.log("level " + this.level);
     if (e <= this.level) {
       this.selectedsilhouetteindex = e;
     }
