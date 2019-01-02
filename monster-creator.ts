@@ -33,7 +33,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
   @property({ type: Number })
   NUMBER_OF_IMAGES_MOUTH = 3;
   @property({ type: Number })
-  NUMBER_OF_IMAGES_SILHOUETTES = 4;
+  NUMBER_OF_IMAGES_SILHOUETTES = 3;
   @property({ type: Number, attribute: true })
   level = 1;
   @property({ type: String })
@@ -70,6 +70,16 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
   ready() {
     console.log("ready called");
+
+    //Update ViewBox on SVG slotted elements    
+    // let mySVG2 = this.shadowRoot.querySelector('#silhouette1').assignedNodes()[0] 
+    // mySVG2.setAttribute("viewBox", "0 0 100 100");
+   
+    // let mySVG3 = this.shadowRoot.querySelector('#silhouette2').assignedNodes()[0] 
+    // mySVG3.setAttribute("viewBox", "0 0 150 150");
+
+    // let mySVG4 = this.shadowRoot.querySelector('#silhouette4').assignedNodes()[0] 
+    // mySVG4.setAttribute("viewBox", "0 0 30 30");
 
     let node: any;
 
@@ -444,9 +454,8 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         }
 
         ::slotted(svg) {
-          width: 100px;
-          height: auto;
-          viewbox: 0, 0, 100, 100;
+          width: 200px;
+          height: 200px;
         }
 
         ::slotted(img) {
@@ -672,13 +681,18 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         </div>
 
         <div
+          style="display:flex; justify-content: space-between"
           id="SilhouetteSelector"
           class="${this.customize == "Yes" ? "silhouette" : "DisableCustomize"}"
         >
-          <div
+          <div style="flex-grow:1;"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
+
+                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette1').assignedNodes()[0] 
+                // mySVG.setAttribute("viewBox", "0 0 100 100");
+
                 this.PerformMorph(
                   star,
                   this.shadowRoot.querySelector("#pickedsilhouette1")
@@ -688,13 +702,17 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
             }"
             class="OverlayTwoItemsCharacter silhouettePicker"
           >
-            <slot name="silhouette1"> </slot>
+            <slot name="silhouette1" id="silhouette1" > </slot>
           </div>
 
-          <div
+          <div  style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
+
+                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette2').assignedNodes()[0] 
+                // mySVG.setAttribute("viewBox", "0 0 150 100");
+                
                 this.PerformMorph(
                   star,
                   this.shadowRoot.querySelector("#pickedsilhouette2")
@@ -709,14 +727,14 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
               icon="lock"
             ></iron-icon>
-            <slot name="silhouette2"
+            <slot name="silhouette2" id="silhouette2"
               ><div class="MissingImage">
-                Please supply Silhouette2.png
+                Please supply Silhouette2
               </div></slot
             >
           </div>
 
-          <div
+          <div  style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
@@ -729,61 +747,13 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
             }"
             class="OverlayTwoItemsCharacter silhouettePicker"
           >
-            <slot name="silhouette3"
+            <slot name="silhouette3" id="silhouette3"
               ><div class="MissingImage">
-                Please supply Silhouette3.png
+                Please supply Silhouette3
               </div></slot
             >
             <iron-icon
               class="${this.level >= 3 ? "NoPadlock" : ""}"
-              style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-              icon="lock"
-            ></iron-icon>
-          </div>
-
-          <div
-            @click="${
-              () => {
-                let star = this.DetermineShapeToMorphFrom();
-                this.PerformMorph(
-                  star,
-                  this.shadowRoot.querySelector("#pickedsilhouette4")
-                );
-                this.Pick(4);
-              }
-            }"
-            class="OverlayTwoItemsCharacter silhouettePicker"
-          >
-            <slot name="silhouette4"
-              ><div class="MissingImage">
-                Please supply Silhouette4.png
-              </div></slot
-            >
-            <iron-icon
-              class="${this.level >= 4 ? "NoPadlock" : ""}"
-              style="grid-area:main;z-index:2;align-self:center;justify-self:center"
-              icon="lock"
-            ></iron-icon>
-          </div>
-
-          <div
-            @click="${
-              () => {
-                let star = this.DetermineShapeToMorphFrom();
-                this.PerformMorph(
-                  star,
-                  this.shadowRoot.querySelector("#pickedsilhouette5")
-                );
-                this.Pick(5);
-              }
-            }"
-            class="OverlayTwoItemsCharacter silhouettePicker"
-          >
-            <slot name="silhouette5">
-              <div class="MissingImage">Please supply Silhouette5.png</div>
-            </slot>
-            <iron-icon
-              class="${this.level >= 5 ? "NoPadlock" : ""}"
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
               icon="lock"
             ></iron-icon>
