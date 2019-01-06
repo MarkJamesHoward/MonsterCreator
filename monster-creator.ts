@@ -21,41 +21,36 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
   @property({ type: Number, reflect: true, attribute: true })
   selectedeyey;
   @property({ type: Number, reflect: true, attribute: true })
-  selectedmouthindex;
+  selectedeyeindex;
+
   @property({ type: Number, reflect: true, attribute: true })
   selectedmouthx;
   @property({ type: Number, reflect: true, attribute: true })
   selectedmouthy;
   @property({ type: Number, reflect: true, attribute: true })
+  selectedmouthindex;
+
+  @property({ type: Number, reflect: true, attribute: true })
   selectedsilhouetteindex;
-  @property({ type: Number })
-  NUMBER_OF_IMAGES_EYES = 3;
-  @property({ type: Number })
-  NUMBER_OF_IMAGES_MOUTH = 3;
-  @property({ type: Number })
-  NUMBER_OF_IMAGES_SILHOUETTES = 3;
+
   @property({ type: Number, attribute: true })
   level = 1;
   @property({ type: String })
   customize = "Yes";
+
   @property({ type: Boolean, attribute: false })
   EyesSlot1Used = false;
   @property({ type: Boolean, attribute: false })
   EyesSlot2Used = false;
   @property({ type: Boolean, attribute: false })
   EyesSlot3Used = false;
+
   @property({ type: Boolean, attribute: false })
-  EyesSlot4Used = false;
+  MouthSlot1Used = false;
   @property({ type: Boolean, attribute: false })
   MouthSlot2Used = false;
   @property({ type: Boolean, attribute: false })
   MouthSlot3Used = false;
-  @property({ type: Boolean, attribute: false })
-  MouthSlot4Used = false;
-  @property({ type: Boolean, attribute: false })
-  MouthSlot1Used = false;
-  @property({ type: Number, reflect: true, attribute: true })
-  selectedeyeindex;
 
   firstUpdated() {
     console.log("first updated called");
@@ -71,14 +66,14 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
   ready() {
     console.log("ready called");
 
-    //Update ViewBox on SVG slotted elements    
-    // let mySVG2 = this.shadowRoot.querySelector('#silhouette1').assignedNodes()[0] 
+    //Update ViewBox on SVG slotted elements
+    // let mySVG2 = this.shadowRoot.querySelector('#silhouette1').assignedNodes()[0]
     // mySVG2.setAttribute("viewBox", "0 0 100 100");
-   
-    // let mySVG3 = this.shadowRoot.querySelector('#silhouette2').assignedNodes()[0] 
+
+    // let mySVG3 = this.shadowRoot.querySelector('#silhouette2').assignedNodes()[0]
     // mySVG3.setAttribute("viewBox", "0 0 150 150");
 
-    // let mySVG4 = this.shadowRoot.querySelector('#silhouette4').assignedNodes()[0] 
+    // let mySVG4 = this.shadowRoot.querySelector('#silhouette4').assignedNodes()[0]
     // mySVG4.setAttribute("viewBox", "0 0 30 30");
 
     let node: any;
@@ -90,6 +85,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         node = this.shadowRoot.querySelector("#MouthSlot1");
         node.style.left = this.selectedmouthx + "%";
         node.style.top = this.selectedmouthy + "%";
+        console.log("moving mouth left and top");
         break;
       case 2:
         this.MouthSlot2Used = true;
@@ -102,13 +98,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         this.MouthSlot3Used = true;
         //@ts-ignore
         node = this.shadowRoot.querySelector("#MouthSlot3");
-        node.style.left = this.selectedmouthx + "%";
-        node.style.top = this.selectedmouthy + "%";
-        break;
-      case 4:
-        this.MouthSlot4Used = true;
-        //@ts-ignore
-        node = this.shadowRoot.querySelector("#MouthSlot4");
         node.style.left = this.selectedmouthx + "%";
         node.style.top = this.selectedmouthy + "%";
         break;
@@ -136,13 +125,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         node.style.left = this.selectedeyex + "%";
         node.style.top = this.selectedeyey + "%";
         break;
-      case 4:
-        this.EyesSlot4Used = true;
-        //@ts-ignore
-        node = this.shadowRoot.querySelector("#EyesSlot4");
-        node.style.left = this.selectedeyex + "%";
-        node.style.top = this.selectedeyey + "%";
-        break;
     }
 
     Gestures.addListener(
@@ -164,12 +146,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       "track",
       this.handleTrackEye3.bind(this)
     );
-    Gestures.addListener(
-      //@ts-ignore
-      this.shadowRoot.querySelector("#EyesSlot4"),
-      "track",
-      this.handleTrackEye4.bind(this)
-    );
 
     Gestures.addListener(
       //@ts-ignore
@@ -189,16 +165,9 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       "track",
       this.handleTrackMouth3.bind(this)
     );
-    Gestures.addListener(
-      //@ts-ignore
-      this.shadowRoot.querySelector("#MouthSlot4"),
-      "track",
-      this.handleTrackMouth4.bind(this)
-    );
   }
 
   handleTrackEye1(e) {
-    console.log("call");
     this.handleTrackEye(
       e,
       //@ts-ignore
@@ -224,15 +193,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       3
     );
     this.EyesSlot3Used = true;
-  }
-  handleTrackEye4(e) {
-    this.handleTrackEye(
-      e,
-      //@ts-ignore
-      this.shadowRoot.querySelector("#EyesSlot4"),
-      4
-    );
-    this.EyesSlot4Used = true;
   }
 
   handleTrackMouth1(e) {
@@ -262,15 +222,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
     );
     this.MouthSlot3Used = true;
   }
-  handleTrackMouth4(e) {
-    this.handleTrackMouth(
-      e,
-      //@ts-ignore
-      this.shadowRoot.querySelector("#MouthSlot4"),
-      4
-    );
-    this.MouthSlot4Used = true;
-  }
 
   handleTrackEye(e: any, item: any, index: Number) {
     //@ts-ignore
@@ -279,22 +230,14 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       case 1:
         this.EyesSlot2Used = false;
         this.EyesSlot3Used = false;
-        this.EyesSlot4Used = false;
         break;
       case 2:
         this.EyesSlot1Used = false;
         this.EyesSlot3Used = false;
-        this.EyesSlot4Used = false;
         break;
       case 3:
         this.EyesSlot1Used = false;
         this.EyesSlot2Used = false;
-        this.EyesSlot4Used = false;
-        break;
-      case 4:
-        this.EyesSlot1Used = false;
-        this.EyesSlot2Used = false;
-        this.EyesSlot3Used = false;
         break;
     }
     //Reset the position of the other eyes
@@ -311,7 +254,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           (e.detail.sourceEvent.clientY / container.clientHeight) * 100 + "%";
         //item.style.top = e.detail.sourceEvent.clientY + "px";
         //this.message = "Tracking in progress... " + x + ", " + y;
-        //console.log("tracing in progress");
+        console.log("tracing in progress");
         break;
       case "end":
         console.log("trackng ended - store position");
@@ -335,22 +278,14 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       case 1:
         this.MouthSlot2Used = false;
         this.MouthSlot3Used = false;
-        this.MouthSlot4Used = false;
         break;
       case 2:
         this.MouthSlot1Used = false;
         this.MouthSlot3Used = false;
-        this.MouthSlot4Used = false;
         break;
       case 3:
         this.MouthSlot1Used = false;
         this.MouthSlot2Used = false;
-        this.MouthSlot4Used = false;
-        break;
-      case 4:
-        this.MouthSlot1Used = false;
-        this.MouthSlot2Used = false;
-        this.MouthSlot3Used = false;
         break;
     }
     //Reset the position of the other eyes
@@ -466,7 +401,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         .MouthSlot1,
         .MouthSlot2,
-        .MouthSlot3, {
+        .MouthSlot3 {
           position: absolute;
           width: 20%;
           max-width: 150px;
@@ -474,7 +409,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         .EyesSlot1,
         .EyesSlot2,
-        .EyesSlot3, {
+        .EyesSlot3 {
           position: absolute;
           width: 20%;
           max-width: 150px;
@@ -545,8 +480,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                     this.MouthSlot1Used ? "MouthSlot1" : "Mouth1ResetPostion"
                   }"
                 ></div>
-                  <slot name="MouthSlot1"></slot>
-                </div>
+                <slot name="MouthSlot1"></slot>
               </div>
             </div>
 
@@ -625,12 +559,13 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           id="SilhouetteSelector"
           class="${this.customize == "Yes" ? "silhouette" : "DisableCustomize"}"
         >
-          <div style="flex-grow:1;"
+          <div
+            style="flex-grow:1;"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
 
-                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette1').assignedNodes()[0] 
+                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette1').assignedNodes()[0]
                 // mySVG.setAttribute("viewBox", "0 0 100 100");
 
                 this.PerformMorph(
@@ -642,17 +577,18 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
             }"
             class="OverlayTwoItemsCharacter silhouettePicker"
           >
-            <slot name="silhouette1" id="silhouette1" > </slot>
+            <slot name="silhouette1" id="silhouette1"> </slot>
           </div>
 
-          <div  style="flex-grow:1"
+          <div
+            style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
 
-                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette2').assignedNodes()[0] 
+                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette2').assignedNodes()[0]
                 // mySVG.setAttribute("viewBox", "0 0 150 100");
-                
+
                 this.PerformMorph(
                   star,
                   this.shadowRoot.querySelector("#pickedsilhouette2")
@@ -667,13 +603,12 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
               icon="lock"
             ></iron-icon>
             <slot name="silhouette2" id="silhouette2"
-              ><div class="MissingImage">
-                Please supply Silhouette2
-              </div></slot
+              ><div class="MissingImage">Please supply Silhouette2</div></slot
             >
           </div>
 
-          <div  style="flex-grow:1"
+          <div
+            style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
@@ -687,9 +622,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
             class="OverlayTwoItemsCharacter silhouettePicker"
           >
             <slot name="silhouette3" id="silhouette3"
-              ><div class="MissingImage">
-                Please supply Silhouette3
-              </div></slot
+              ><div class="MissingImage">Please supply Silhouette3</div></slot
             >
             <iron-icon
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
@@ -709,10 +642,12 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
     console.dir(targetElementPath);
     const endShape = targetElementPath.getAttribute("d");
-    
-    let StartAndEndShapeMorph = interpolate(startShape, endShape, { maxSegmentLength: 2 };
 
-    let target = styler(targetElementPath).set('d');
+    let StartAndEndShapeMorph = interpolate(startShape, endShape, {
+      maxSegmentLength: 2
+    });
+
+    let target = styler(targetElementPath).set("d");
 
     console.log("Perform Morph");
     tween({
