@@ -323,11 +323,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           box-sizing: border-box;
         }
 
-        div.mouth,
-        div.eyes {
-          min-height: 100px;
-        }
-
         .OverlayTwoItemsCharacter {
           display: grid;
           grid-template-rows: 1fr;
@@ -344,7 +339,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         }
 
         .DisableCustomize {
-          visibility: hidden;
+          display: none;
         }
 
         .displayVertical {
@@ -367,6 +362,11 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           align-items: center;
           min-height: 20%;
         }
+
+        /* div.mouth,
+        div.eyes {
+          min-height: 100px;
+        } */
 
         .silhouette {
           display: flex;
@@ -562,7 +562,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         </div>
 
         <div
-          style="display:flex; justify-content: space-between"
           id="SilhouetteSelector"
           class="${this.customize == "Yes" ? "silhouette" : "DisableCustomize"}"
         >
@@ -632,6 +631,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
               ><div class="MissingImage">Please supply Silhouette3</div></slot
             >
             <iron-icon
+              class="${this.level >= 2 ? "" : "hidden"}"
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
               icon="lock"
             ></iron-icon>
