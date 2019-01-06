@@ -663,7 +663,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
             class="OverlayTwoItemsCharacter silhouettePicker"
           >
             <iron-icon
-              class="${this.level >= 2 ? "NoPadlock" : ""}"
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
               icon="lock"
             ></iron-icon>
@@ -693,7 +692,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
               </div></slot
             >
             <iron-icon
-              class="${this.level >= 3 ? "NoPadlock" : ""}"
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
               icon="lock"
             ></iron-icon>
