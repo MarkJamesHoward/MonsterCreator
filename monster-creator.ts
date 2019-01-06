@@ -466,8 +466,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         .MouthSlot1,
         .MouthSlot2,
-        .MouthSlot3,
-        .MouthSlot4 {
+        .MouthSlot3, {
           position: absolute;
           width: 20%;
           max-width: 150px;
@@ -475,8 +474,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         .EyesSlot1,
         .EyesSlot2,
-        .EyesSlot3,
-        .EyesSlot4 {
+        .EyesSlot3, {
           position: absolute;
           width: 20%;
           max-width: 150px;
@@ -530,25 +528,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 <slot name="EyesSlot3"></slot>
               </div>
             </div>
-
-            <div
-              class="${
-                this.customize != "Yes" && this.EyesSlot4Used == false
-                  ? "DisableCustomize"
-                  : ""
-              }"
-            >
-              <div class="${this.level > 3 ? "" : "hidden"}">
-                <div
-                  id="EyesSlot4"
-                  class="${
-                    this.EyesSlot4Used ? "EyesSlot4" : "Eye4ResetPostion"
-                  }"
-                >
-                  <slot name="EyesSlot4"></slot>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="mouth">
@@ -565,7 +544,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                   class="${
                     this.MouthSlot1Used ? "MouthSlot1" : "Mouth1ResetPostion"
                   }"
-                >
+                ></div>
                   <slot name="MouthSlot1"></slot>
                 </div>
               </div>
@@ -608,25 +587,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 </div>
               </div>
             </div>
-
-            <div
-              class="${
-                this.customize != "Yes" && this.MouthSlot4Used == false
-                  ? "DisableCustomize"
-                  : ""
-              }"
-            >
-              <div class="${this.level > 3 ? "" : "hidden"}">
-                <div
-                  id="MouthSlot4"
-                  class="${
-                    this.MouthSlot4Used ? "MouthSlot4" : "Mouth4ResetPostion"
-                  }"
-                >
-                  <slot name="MouthSlot4"></slot>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="OverlayTwoItemsCharacter">
@@ -655,26 +615,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 style="margin: 0 auto"
                 id="pickedsilhouette3"
                 name="pickedsilhouette3"
-              ></slot>
-            </div>
-            <div
-              style="grid-area:main;  margin: 0 auto"
-              class="${this.selectedsilhouetteindex == 4 ? "" : "hidden"}"
-            >
-              <slot
-                style="margin: 0 auto"
-                id="pickedsilhouette4"
-                name="pickedsilhouette4"
-              ></slot>
-            </div>
-            <div
-              style="grid-area:main;  margin: 0 auto"
-              class="${this.selectedsilhouetteindex == 5 ? "" : "hidden"}"
-            >
-              <slot
-                style="margin: 0 auto"
-                id="pickedsilhouette5"
-                name="pickedsilhouette5"
               ></slot>
             </div>
           </div>
