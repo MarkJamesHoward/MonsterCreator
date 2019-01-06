@@ -306,6 +306,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         this.selectedmouthy = item.style.top.substring(0, 2);
         console.log("selected mouth index " + this.selectedmouthindex);
         console.log("selected mouth X " + this.selectedmouthx);
+        console.log("selected mouth Y " + this.selectedmouthy);
         break;
     }
   }
@@ -320,6 +321,11 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
       <style>
         :root {
           box-sizing: border-box;
+        }
+
+        div.mouth,
+        div.eyes {
+          min-height: 100px;
         }
 
         .OverlayTwoItemsCharacter {
@@ -359,6 +365,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           display: flex;
           justify-content: space-around;
           align-items: center;
+          min-height: 20%;
         }
 
         .silhouette {
