@@ -86,7 +86,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!**********************************************************!*\
   !*** ./node_modules/@polymer/lit-element/lit-element.js ***!
   \**********************************************************/
-/*! exports provided: notEqual, UpdatingElement, customElement, property, query, queryAll, html, svg, LitElement */
+/*! exports provided: html, svg, LitElement, notEqual, UpdatingElement, customElement, property, query, queryAll */
 /*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__, __webpack_require__.d */
 /***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
 
@@ -409,7 +409,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!*******************************************!*\
   !*** ./node_modules/lit-html/lit-html.js ***!
   \*******************************************/
-/*! exports provided: TemplateResult, SVGTemplateResult, marker, nodeMarker, markerRegex, rewritesStyleAttribute, Template, isTemplatePartActive, createMarker, lastAttributeNameRegex, DefaultTemplateProcessor, defaultTemplateProcessor, TemplateInstance, noChange, isPrimitive, AttributeCommitter, AttributePart, NodePart, BooleanAttributePart, PropertyCommitter, PropertyPart, EventPart, isCEPolyfill, reparentNodes, removeNodes, directive, isDirective, parts, render, templateFactory, templateCaches, html, svg */
+/*! exports provided: html, svg, TemplateResult, SVGTemplateResult, marker, nodeMarker, markerRegex, rewritesStyleAttribute, Template, isTemplatePartActive, createMarker, lastAttributeNameRegex, DefaultTemplateProcessor, defaultTemplateProcessor, TemplateInstance, noChange, isPrimitive, AttributeCommitter, AttributePart, NodePart, BooleanAttributePart, PropertyCommitter, PropertyPart, EventPart, isCEPolyfill, reparentNodes, removeNodes, directive, isDirective, parts, render, templateFactory, templateCaches */
 /*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__, __webpack_require__.d */
 /***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
 
