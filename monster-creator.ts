@@ -67,13 +67,19 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
     console.log("ready called");
 
     //Update ViewBox on SVG slotted elements
-    // let mySVG2 = this.shadowRoot.querySelector('#silhouette1').assignedNodes()[0]
+    // let mySVG2 = this.shadowRoot
+    //   .querySelector("#pickedsilhouette1")
+    //   .assignedNodes()[0];
     // mySVG2.setAttribute("viewBox", "0 0 100 100");
 
-    // let mySVG3 = this.shadowRoot.querySelector('#silhouette2').assignedNodes()[0]
+    // let mySVG3 = this.shadowRoot
+    //   .querySelector("#pickedsilhouette2")
+    //   .assignedNodes()[0];
     // mySVG3.setAttribute("viewBox", "0 0 150 150");
 
-    // let mySVG4 = this.shadowRoot.querySelector('#silhouette4').assignedNodes()[0]
+    // let mySVG4 = this.shadowRoot
+    //   .querySelector("#pickedsilhouette3")
+    //   .assignedNodes()[0];
     // mySVG4.setAttribute("viewBox", "0 0 30 30");
 
     let node: any;
@@ -328,6 +334,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           grid-template-rows: 1fr;
           grid-template-columns: 1fr;
           grid-template-areas: "main";
+          height: 100%;
         }
 
         .NoPadlock {
@@ -363,18 +370,12 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           min-height: 20%;
         }
 
-        /* div.mouth,
-        div.eyes {
-          min-height: 100px;
-        } */
-
         .silhouette {
           display: flex;
         }
 
         .silhouettePicker {
-          object-fit: contain;
-          width: 20%;
+          flex-grow: 1;
         }
 
         button {
@@ -396,12 +397,12 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         }
 
         ::slotted(svg) {
-          width: 200px;
-          height: 200px;
+          width: 100%;
+          height: 100%;
         }
 
         ::slotted(img) {
-          width: 50%;
+          width: 100%;
           max-width: 150px;
           object-fit: contain;
         }
@@ -410,7 +411,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         .MouthSlot2,
         .MouthSlot3 {
           position: absolute;
-          width: 20%;
+          width: 30%;
           max-width: 150px;
         }
 
@@ -418,7 +419,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         .EyesSlot2,
         .EyesSlot3 {
           position: absolute;
-          width: 20%;
+          width: 30%;
           max-width: 150px;
         }
       </style>
@@ -532,28 +533,29 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
           <div class="OverlayTwoItemsCharacter">
             <div
-              style="grid-area:main; margin: 0 auto;"
+              style="grid-area:main; margin: 0 auto;height: 100%"
               class="${this.selectedsilhouetteindex == 1 ? "" : "hidden"}"
             >
               <slot id="pickedsilhouette1" name="pickedsilhouette1"></slot>
             </div>
 
             <div
-              style="grid-area:main;  margin: 0 auto"
+              style="grid-area:main;  margin: 0 auto; height: 100%"
               class="${this.selectedsilhouetteindex == 2 ? "" : "hidden"}"
             >
               <slot
-                style="margin: 0 auto"
+                style="margin: 0 auto; height: 100%"
                 id="pickedsilhouette2"
                 name="pickedsilhouette2"
               ></slot>
             </div>
+
             <div
-              style="grid-area:main;  margin: 0 auto"
+              style="grid-area:main;  margin: 0 auto; height: 100%"
               class="${this.selectedsilhouetteindex == 3 ? "" : "hidden"}"
             >
               <slot
-                style="margin: 0 auto"
+                style="margin: 0 auto; height: 100%"
                 id="pickedsilhouette3"
                 name="pickedsilhouette3"
               ></slot>
@@ -566,14 +568,9 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           class="${this.customize == "Yes" ? "silhouette" : "DisableCustomize"}"
         >
           <div
-            style="flex-grow:1;"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
-
-                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette1').assignedNodes()[0]
-                // mySVG.setAttribute("viewBox", "0 0 100 100");
-
                 this.PerformMorph(
                   star,
                   this.shadowRoot.querySelector("#pickedsilhouette1")
@@ -581,20 +578,15 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 this.Pick(1);
               }
             }"
-            class="OverlayTwoItemsCharacter silhouettePicker"
+            class="silhouettePicker"
           >
-            <slot name="silhouette1" id="silhouette1"> </slot>
+            <slot name="silhouette1" id="silhouette1">Missing</slot>
           </div>
 
           <div
-            style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
-
-                // let mySVG = this.shadowRoot.querySelector('#pickedsilhouette2').assignedNodes()[0]
-                // mySVG.setAttribute("viewBox", "0 0 150 100");
-
                 this.PerformMorph(
                   star,
                   this.shadowRoot.querySelector("#pickedsilhouette2")
@@ -602,7 +594,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 this.Pick(2);
               }
             }"
-            class="OverlayTwoItemsCharacter silhouettePicker"
+            class="silhouettePicker"
           >
             <iron-icon
               style="grid-area:main;z-index:2;align-self:center;justify-self:center"
@@ -614,7 +606,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           </div>
 
           <div
-            style="flex-grow:1"
             @click="${
               () => {
                 let star = this.DetermineShapeToMorphFrom();
@@ -625,7 +616,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
                 this.Pick(3);
               }
             }"
-            class="OverlayTwoItemsCharacter silhouettePicker"
+            class="silhouettePicker"
           >
             <slot name="silhouette3" id="silhouette3"
               ><div class="MissingImage">Please supply Silhouette3</div></slot
