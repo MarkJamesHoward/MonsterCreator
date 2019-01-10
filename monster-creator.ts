@@ -404,7 +404,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         ::slotted(img) {
           width: 100%;
-          max-width: 50px;
+          max-width: 150px;
           object-fit: contain;
         }
 
