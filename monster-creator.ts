@@ -331,8 +331,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
 
         .OverlayTwoItemsCharacter {
           display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
           grid-template-areas: "main";
           height: 100%;
         }
@@ -367,7 +365,6 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           display: flex;
           justify-content: space-around;
           align-items: center;
-          min-height: 20%;
         }
 
         .silhouette {
@@ -401,9 +398,13 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           height: 100%;
         }
 
+        div.silhouettePicker ::slotted(svg) {
+          max-width: 200px;
+        }
+
         ::slotted(img) {
           width: 100%;
-          max-width: 150px;
+          max-width: 50px;
           object-fit: contain;
         }
 
@@ -421,6 +422,10 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
           position: absolute;
           width: 30%;
           max-width: 150px;
+        }
+
+        #eyesandsilcontainer {
+          height: 100%;
         }
       </style>
 
@@ -635,6 +640,10 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
   PerformMorph(startShape, targetElement) {
     console.log("StartShape " + (startShape || "no start shape"));
     console.log("targetElement " + (targetElement || "no target element"));
+
+    if (!startShape) {
+      return;
+    }
 
     let targetElementPath = targetElement.assignedNodes()[0].childNodes[1];
 
