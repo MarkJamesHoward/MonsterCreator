@@ -15,7 +15,7 @@ import { interpolate } from "flubber";
 //@ts-ignore
 @customElement("monster-creator" as any)
 //@ts-ignore
-class MonsterCreator extends GestureEventListeners(LitElement) {
+export class MonsterCreator extends GestureEventListeners(LitElement) {
   @property({ type: Number, reflect: true, attribute: true })
   selectedeyex;
   @property({ type: Number, reflect: true, attribute: true })
@@ -399,7 +399,7 @@ class MonsterCreator extends GestureEventListeners(LitElement) {
         }
 
         div.silhouettePicker ::slotted(svg) {
-          max-width: 200px;
+          max-width: 100px;
         }
 
         ::slotted(img) {
